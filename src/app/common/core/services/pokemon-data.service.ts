@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
 import { Pokemon } from './../../interfaces/pokemon';
-import { pokemonData } from './data';
 
 @Injectable()
 export class PokemonDataService {

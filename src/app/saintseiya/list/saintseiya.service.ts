@@ -7,7 +7,7 @@ import { Pokemon } from './../../common/interfaces/pokemon';
 import { PokemonDataService } from './../../common/core/services/pokemon-data.service';
 
 @Injectable()
-export class PokemonService {
+export class SaintseiyaService {
   readonly pokemon: Observable<Pokemon[]>;
   private searchTerm = new Subject<string>();
 

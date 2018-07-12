@@ -1,13 +1,13 @@
 {
-  "name": "NG-Pokédex",
-  "short_name": "NG-Pokédex",
+  "name": "NG-Saintdex",
+  "short_name": "NG-Saintdex",
   "theme_color": "#ef5350",
   "background_color": "#ef5350",
   "display": "standalone",
   "orientation": "portrait",
   "Scope": "/",
   "start_url": "/",
-  "description":"A fast progressive web app Pokemon Pokédex",
+  "description":"A fast progressive web app Saint Seiya Saintdex",
   "icons": [
     {
       "src": "assets/images/icons/icon-72x72.png",

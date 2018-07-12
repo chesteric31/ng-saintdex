@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 export const routes: Routes = [
-  { path: '', loadChildren: 'app/pokemon/pokemon.module#PokemonModule' },
+  { path: '', loadChildren: 'app/saintseiya/saint-seiya.module#SaintSeiyaModule' },
   { path: 'about', loadChildren: 'app/about/about.module#AboutModule' },
 ];
 

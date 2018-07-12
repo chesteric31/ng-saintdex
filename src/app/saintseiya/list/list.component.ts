@@ -2,20 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Pokemon } from './../../common/interfaces/pokemon';
-import { PokemonService } from './pokemon.service';
+import { SaintseiyaService } from './saintseiya.service';
 
 @Component({
   selector: 'app-pokemon-list',
-  templateUrl: './pokemon-list.component.html',
-  styleUrls: ['./pokemon-list.component.scss'],
-  providers: [PokemonService]
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss'],
+  providers: [SaintseiyaService]
 })
-export class PokemonListComponent implements OnInit {
+export class ListComponent implements OnInit {
   pokemon: Observable<Pokemon[]>;
   showGrid = true;
 
   constructor(
-    private pokemonService: PokemonService) { }
+    private pokemonService: SaintseiyaService) { }
 
   ngOnInit() {
     this.pokemonService.setTitle();

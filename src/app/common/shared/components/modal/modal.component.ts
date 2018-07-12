@@ -1,5 +1,4 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, OnDestroy, Output } from '@angular/core';
-import { trigger } from '@angular/animations';
 
 import { ViewportService } from './../../../core/services/viewport.service';
 

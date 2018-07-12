@@ -8,11 +8,11 @@ import { Pokemon } from './../../common/interfaces/pokemon';
 import { PokemonDataService } from './../../common/core/services/pokemon-data.service';
 
 @Component({
-  selector: 'app-pokemon-detail',
-  templateUrl: './pokemon-detail.component.html',
-  styleUrls: ['./pokemon-detail.component.scss']
+  selector: 'app-saintseiya-detail',
+  templateUrl: './detail.component.html',
+  styleUrls: ['./detail.component.scss']
 })
-export class PokemonDetailComponent implements OnInit, OnDestroy {
+export class DetailComponent implements OnInit, OnDestroy {
   pokemon: Observable<Pokemon>;
 
   constructor(
