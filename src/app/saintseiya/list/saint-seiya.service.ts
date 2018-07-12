@@ -7,7 +7,7 @@ import { Pokemon } from './../../common/interfaces/pokemon';
 import { PokemonDataService } from './../../common/core/services/pokemon-data.service';
 
 @Injectable()
-export class SaintseiyaService {
+export class SaintSeiyaService {
   readonly pokemon: Observable<Pokemon[]>;
   private searchTerm = new Subject<string>();
 
@@ -24,7 +24,7 @@ export class SaintseiyaService {
   }
 
   setTitle() {
-    this.title.setTitle('Search for Pokémon');
+    this.title.setTitle('Search for Armors');
   }
 
   search(term: string) {
