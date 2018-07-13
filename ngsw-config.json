@@ -19,7 +19,7 @@
     "updateMode": "prefetch",
     "resources": {
       "files": [
-        "/assets/images/pokemon.png",
+        "/assets/images/logo.png",
         "/assets/images/pokeball.png"
       ]
     }

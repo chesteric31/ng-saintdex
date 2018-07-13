@@ -16,8 +16,8 @@ $pokeball-size: 12rem;
 .pokeball {
   $pokeball-half: $pokeball-size / -2;
   background: radial-gradient(circle at top left, rgba(255,255,255,0.3), transparent),  radial-gradient(circle at bottom right, rgba(0,0,0,0.1), transparent),
-linear-gradient(lighten(desaturate($color-pokedex-red, 5%), 2%) 50%, $color-white 49%);
-  background: linear-gradient(lighten(desaturate($color-pokedex-red, 5%), 2%) 50%, $color-white 49%);
+linear-gradient(lighten(desaturate($color-saintdex-gold, 5%), 2%) 50%, $color-white 49%);
+  background: linear-gradient(lighten(desaturate($color-saintdex-gold, 5%), 2%) 50%, $color-white 49%);
   border-radius: 50%;
   height: $pokeball-size;
   left: 50%;

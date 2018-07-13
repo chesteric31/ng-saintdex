@@ -1,8 +1,8 @@
 @import '../../../../../styles/_config';
 
 header {
-  background-color: $color-pokedex-red;
-  color: $color-white;
+  background-color: $color-saintdex-gold;
+  color: $color-grey-dark;
   padding: 4px 4px 0px 4px;
   position: fixed;
   top: 0;
@@ -16,12 +16,12 @@ header {
   font-size: 1.2em;
   padding: 12px;
   float: left;
-  color: $color-white;
+  color: $color-grey-dark;
   text-decoration: none;
 }
 
 .btn--clear {
-  color: $color-white;
+  color: $color-grey-dark;
   float: left;
   padding: 6px 0 0 0;
   min-width: 54px;

@@ -15,8 +15,8 @@ input[type=text], input[type=date], textarea {
   transition: all 0.3s;
 
   &:focus {
-    border-bottom: 1px solid $color-pokedex-red;
-    box-shadow: 0 1px 0 0 $color-pokedex-red;
+    border-bottom: 1px solid $color-saintdex-gold;
+    box-shadow: 0 1px 0 0 $color-saintdex-gold;
   }
 }
 
@@ -33,20 +33,20 @@ textarea {
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: $placeholder-color; 
+   color: $placeholder-color;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
    color: $placeholder-color;
 }
 
-:-ms-input-placeholder {  
+:-ms-input-placeholder {
    color: $placeholder-color;
 }
 
 .search-card {
   position: relative;
-  
+
   &__input, input[type=text] {
     width: 100%;
     background-color: #fff;
@@ -84,7 +84,7 @@ textarea {
   user-select: none;
   outline: 0;
   padding: 0;
-  color: $color-pokedex-red;
+  color: $color-saintdex-gold;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
@@ -105,7 +105,7 @@ textarea {
 
     &:focus + label {
       transition: all 0.3s;
-      color: $color-pokedex-red;
+      color: $color-saintdex-gold;
     }
   }
 
@@ -115,5 +115,5 @@ textarea {
 }
 
 .input-group {
-  
+
 }

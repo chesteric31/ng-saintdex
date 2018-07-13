@@ -31,22 +31,22 @@ export class DetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.title.setTitle('Search for Pokémon');
+    this.title.setTitle('Search for Armors');
   }
 
   next() {
     const paramId = +this.activatedRoute.snapshot.params.id;
     const id = paramId === 1 ? 151 : paramId - 1;
-    this.router.navigateByUrl(`/pokemon/${id}`);
+    this.router.navigateByUrl(`/saintseiya/${id}`);
   }
 
   previous() {
     const paramId = +this.activatedRoute.snapshot.params.id;
     const id = paramId < 151 ? paramId + 1 : 1;
-    this.router.navigateByUrl(`/pokemon/${id}`);
+    this.router.navigateByUrl(`/saintseiya/${id}`);
   }
 
   close() {
-    this.router.navigateByUrl('/pokemon');
+    this.router.navigateByUrl('/saintseiya');
   }
 }

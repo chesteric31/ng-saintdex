@@ -38,7 +38,7 @@ $nav-break: 45em;
   -o-transition: left 0.3s;
   transition: left 0.3s;
   will-change: left;
-    
+
   .nav__link {
     display: block;
     padding: 18px 13px 16px 26px;
@@ -48,12 +48,12 @@ $nav-break: 45em;
     color: $color-grey-dark;
     position: relative;
     font-weight: bold;
-    
+
     &:hover, &:active, &:focus {
       background: darken($color-white, 5%);
     }
   }
-    
+
   .nav__link-icon {
     color: #747474;
     font-size: 1.2em;
@@ -64,7 +64,7 @@ $nav-break: 45em;
   }
 
   .close-menu-btn {
-    color: $color-pokedex-red;
+    color: $color-saintdex-gold;
     border: 0;
     margin-bottom: 6px;
     padding: 10px;
@@ -78,7 +78,7 @@ $nav-break: 45em;
       outline: none;
     }
   }
-    
+
   .logout-group {
     float: left;
     padding: 10px;
@@ -89,7 +89,7 @@ $nav-break: 45em;
   .nav {
     left: 0;
   }
-    
+
   .menu-overlay {
     display: block;
   }
@@ -98,20 +98,20 @@ $nav-break: 45em;
 .large-nav {
   width: 100%;
   display: none;
-    
+
   &__link {
-    color: $color-white;	
+    color: $color-white;
     background: none;
     border: 0;
     padding: 4px 10px;
     text-decoration: none;
     font-size: 1.2em;
-        
+
     &:hover {
       text-decoration: underline;
-    }	
+    }
   }
-    
+
   @media (min-width: $nav-break) {
     display: block;
     margin: 10px 5px 5px 20px;
