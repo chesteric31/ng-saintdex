@@ -3,19 +3,19 @@ import { Title } from '@angular/platform-browser';
 import { Observable, Subject } from 'rxjs';
 import { switchMap, startWith, tap, map } from 'rxjs/operators';
 
-import { Pokemon } from './../../common/interfaces/pokemon';
-import { PokemonDataService } from './../../common/core/services/pokemon-data.service';
+import { ArmorVersion } from '../../common/interfaces/saint-seiya';
+import { SaintSeiyaDataService } from '../../common/core/services/saint-seiya-data.service';
 
 @Injectable()
 export class SaintSeiyaService {
-  readonly pokemon: Observable<Pokemon[]>;
+  readonly allVersions: Observable<ArmorVersion[]>;
   private searchTerm = new Subject<string>();
 
   constructor(
     private title: Title,
-    private pokemonDataService: PokemonDataService
+    private service: SaintSeiyaDataService
   ) {
-    this.pokemon = this.pokemonDataService.pokemon.pipe(
+    this.allVersions = this.service.allVersions.pipe(
       switchMap(pokemon => this.searchTerm.pipe(
         map(term => this.filter(pokemon, term)),
         startWith(pokemon)
@@ -31,7 +31,7 @@ export class SaintSeiyaService {
     this.searchTerm.next(term);
   }
 
-  private filter(pokemon: Pokemon[], value: string) {
+  private filter(pokemon: ArmorVersion[], value: string) {
     return pokemon.filter(p => value ? p.name.toLowerCase().includes(value.toLowerCase()) : pokemon);
   }
 }

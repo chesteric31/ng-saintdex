@@ -4,8 +4,8 @@ import { Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { map, distinctUntilChanged, mergeMap, tap } from 'rxjs/operators';
 
-import { Pokemon } from './../../common/interfaces/pokemon';
-import { PokemonDataService } from './../../common/core/services/pokemon-data.service';
+import { ArmorVersion } from '../../common/interfaces/saint-seiya';
+import { SaintSeiyaDataService } from '../../common/core/services/saint-seiya-data.service';
 
 @Component({
   selector: 'app-saintseiya-detail',
@@ -13,20 +13,20 @@ import { PokemonDataService } from './../../common/core/services/pokemon-data.se
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit, OnDestroy {
-  pokemon: Observable<Pokemon>;
+  pokemon: Observable<ArmorVersion>;
 
   constructor(
     private title: Title,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private pokemonDataService: PokemonDataService) { }
+    private pokemonDataService: SaintSeiyaDataService) { }
 
   ngOnInit() {
     this.pokemon = this.activatedRoute.params
       .pipe(
         distinctUntilChanged(),
-        mergeMap(params => this.pokemonDataService.pokemon.pipe(map(pokemon => pokemon.find(p => p.id === +params.id)))),
-        tap(pokemon => this.title.setTitle(`Pokémon #${pokemon.id} ${pokemon.name}`))
+        mergeMap(params => this.pokemonDataService.allVersions.pipe(map(pokemon => pokemon.find(p => p.id === +params.id)))),
+        tap(pokemon => this.title.setTitle(`Armor #${pokemon.id} ${pokemon.name}`))
       );
   }
 

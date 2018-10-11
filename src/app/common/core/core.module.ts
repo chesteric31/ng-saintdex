@@ -3,7 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 
 import { ViewportService } from './services/viewport.service';
-import { PokemonDataService } from './services/pokemon-data.service';
+import { SaintSeiyaDataService } from './services/saint-seiya-data.service';
 
 @NgModule({
   imports: [
@@ -18,7 +18,7 @@ export class CoreModule {
     return {
       ngModule: CoreModule,
       providers: [
-        PokemonDataService,
+        SaintSeiyaDataService,
         ViewportService
       ],
     };

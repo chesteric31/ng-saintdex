@@ -3,8 +3,9 @@
 </div>
 
 <div bp="grid 6 4@md 2@lg">
-	<a *ngFor="let p of pokemon | async" [routerLink]="['./', p.id]" class="card--media">
-		<i [class]="' sprite sprite-' + p.id"></i>
+	<a *ngFor="let p of armorVersions | async" [routerLink]="['./', p.id]" class="card--media">
+		<!--<i [class]="' sprite sprite-' + p.id"></i>-->
+    <img [src]="p.image" />
 		<div class="card--media__content">
 			{{p.name}}
 			<span bp="float-right">#{{p.id}}</span>
