@@ -6,7 +6,7 @@ h1 {
 }
 
 .sprite {
-  transform: scale(1.6);
+  transform: scale(2.6);
   margin: 20px auto;
 
   @media (min-width: 420px) {
@@ -18,7 +18,7 @@ h1 {
 .type {
   display: inline-block;
   padding: 4px 10px;
-  color: $color-white;
+  color: $color-grey-dark;
   margin-right: 4px;
 }
 

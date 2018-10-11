@@ -13,25 +13,26 @@ import { SaintSeiyaDataService } from '../../common/core/services/saint-seiya-da
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit, OnDestroy {
-  pokemon: Observable<ArmorVersion>;
+
+  armorVersion: Observable<ArmorVersion>;
 
   constructor(
     private title: Title,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private pokemonDataService: SaintSeiyaDataService) { }
+    private dataService: SaintSeiyaDataService) { }
 
   ngOnInit() {
-    this.pokemon = this.activatedRoute.params
+    this.armorVersion = this.activatedRoute.params
       .pipe(
         distinctUntilChanged(),
-        mergeMap(params => this.pokemonDataService.allVersions.pipe(map(pokemon => pokemon.find(p => p.id === +params.id)))),
-        tap(pokemon => this.title.setTitle(`Armor #${pokemon.id} ${pokemon.name}`))
+        mergeMap(params => this.dataService.allVersions.pipe(map(version => version.find(v => v.id === +params.id)))),
+        tap(version => this.title.setTitle(`Armor #${version.id} ${version.name}`))
       );
   }
 
   ngOnDestroy() {
-    this.title.setTitle('Search for Armors');
+    //this.title.setTitle('Search for Armors');
   }
 
   next() {

@@ -3,12 +3,12 @@
 </div>
 
 <div bp="grid 6 4@md 2@lg">
-	<a *ngFor="let p of armorVersions | async" [routerLink]="['./', p.id]" class="card--media">
-		<!--<i [class]="' sprite sprite-' + p.id"></i>-->
-    <img [src]="p.image" />
+	<a *ngFor="let armorVersion of armorVersions | async" [routerLink]="['./', armorVersion.id]" class="card--media">
+		<!--<i [class]="' sprite sprite-' + armorVersion.id"></i>-->
+    <img [src]="armorVersion.thumb" />
 		<div class="card--media__content">
-			{{p.name}}
-			<span bp="float-right">#{{p.id}}</span>
+      {{armorVersion.name}}
+      <span bp="float-right">#{{armorVersion.id}}</span>
 		</div>
 	</a>
 </div>

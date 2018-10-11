@@ -1,7 +1,14 @@
+class ArmorAttack {
+  id: number;
+  name: string;
+}
+
 export interface ArmorVersion {
   id: number;
   name: string;
   image: string;
+  thumb: string;
+  attacks: Array<ArmorAttack>
   self: string;
 }
 
