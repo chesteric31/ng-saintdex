@@ -25,7 +25,7 @@ export class SaintSeiyaService {
   }
 
   setTitle() {
-    //this.title.setTitle('Search for Armors');
+    // this.title.setTitle('Search for Armors');
   }
 
   search(term: string) {

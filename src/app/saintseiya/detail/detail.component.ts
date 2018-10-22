@@ -4,7 +4,7 @@ import {Title} from '@angular/platform-browser';
 import {Observable} from 'rxjs';
 import {distinctUntilChanged, map, mergeMap, tap} from 'rxjs/operators';
 import {SaintSeiyaDataService} from '../../common/core/services/saint-seiya-data.service';
-import {Armor} from "../../common/interfaces/saint-seiya";
+import {Armor} from '../../common/interfaces/saint-seiya';
 
 @Component({
   selector: 'app-saintseiya-detail',
@@ -33,7 +33,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    //this.title.setTitle('Search for Armors');
+    // this.title.setTitle('Search for Armors');
   }
 
   next() {

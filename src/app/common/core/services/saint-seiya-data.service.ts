@@ -10,7 +10,7 @@ export class SaintSeiyaDataService {
   allArmors: Observable<Armor[]>;
 
   constructor(private http: HttpClient) {
-    let params = new HttpParams().set("scaleHeight", "185").set("scaleWidth", "185");
+    const params = new HttpParams().set('scaleHeight', '185').set('scaleWidth', '185');
 
     const url = 'https://ksams.herokuapp.com/api/v2/armors/';
     this.allArmors = this.http.get<Armor[]>(url, {params});
