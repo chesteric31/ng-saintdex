@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { ArmorVersion } from '../../common/interfaces/saint-seiya';
+import {Armor, ArmorVersion} from '../../common/interfaces/saint-seiya';
 import { SaintSeiyaService } from './saint-seiya.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { SaintSeiyaService } from './saint-seiya.service';
 })
 export class ListComponent implements OnInit {
 
-  armorVersions: Observable<ArmorVersion[]>;
+  armors: Observable<Armor[]>;
   showGrid = true;
 
   constructor(
@@ -20,7 +20,7 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.service.setTitle();
-    this.armorVersions = this.service.allVersions;
+    this.armors = this.service.allArmors;
   }
 
   search(term: string) {

@@ -1,4 +1,4 @@
-class ArmorAttack {
+export interface ArmorAttack {
   id: number;
   name: string;
 }
@@ -8,13 +8,18 @@ export interface ArmorVersion {
   name: string;
   image: string;
   thumb: string;
-  attacks: Array<ArmorAttack>
-  self: string;
+  attacks: Array<ArmorAttack>;
 }
 
 export interface Strength {
   id: number;
   name: string;
+}
+
+export interface ArmorStrength {
+  id: number;
+  amount: string;
+  strength: Strength;
 }
 
 export interface Category {
@@ -27,5 +32,5 @@ export interface Armor {
   name: string;
   category: Category;
   versions: ArmorVersion[];
-  strengths: Strength[];
+  strengths: ArmorStrength[];
 }

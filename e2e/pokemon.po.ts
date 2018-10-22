@@ -2,7 +2,7 @@ import { browser, element, by, Key } from 'protractor';
 
 export class PokemonPage {
   navigateTo() {
-    return browser.get('/allVersions');
+    return browser.get('/allArmors');
   }
 
   getPokemonCardElements() {

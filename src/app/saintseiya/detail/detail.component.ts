@@ -1,11 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Title } from '@angular/platform-browser';
-import { Observable } from 'rxjs';
-import { map, distinctUntilChanged, mergeMap, tap } from 'rxjs/operators';
-
-import { ArmorVersion } from '../../common/interfaces/saint-seiya';
-import { SaintSeiyaDataService } from '../../common/core/services/saint-seiya-data.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Title} from '@angular/platform-browser';
+import {Observable} from 'rxjs';
+import {distinctUntilChanged, map, mergeMap, tap} from 'rxjs/operators';
+import {SaintSeiyaDataService} from '../../common/core/services/saint-seiya-data.service';
+import {Armor} from "../../common/interfaces/saint-seiya";
 
 @Component({
   selector: 'app-saintseiya-detail',
@@ -14,7 +13,7 @@ import { SaintSeiyaDataService } from '../../common/core/services/saint-seiya-da
 })
 export class DetailComponent implements OnInit, OnDestroy {
 
-  armorVersion: Observable<ArmorVersion>;
+  armor: Observable<Armor>;
 
   constructor(
     private title: Title,
@@ -23,11 +22,13 @@ export class DetailComponent implements OnInit, OnDestroy {
     private dataService: SaintSeiyaDataService) { }
 
   ngOnInit() {
-    this.armorVersion = this.activatedRoute.params
+    this.armor = this.activatedRoute.params
       .pipe(
         distinctUntilChanged(),
-        mergeMap(params => this.dataService.allVersions.pipe(map(version => version.find(v => v.id === +params.id)))),
-        tap(version => this.title.setTitle(`Armor #${version.id} ${version.name}`))
+        mergeMap(params => this.dataService.allArmors.pipe(map(armor => armor.find(a => a.id === +params.id)))),
+        tap(armor =>
+          this.title.setTitle(`Armor ${armor.name}`)
+        )
       );
   }
 

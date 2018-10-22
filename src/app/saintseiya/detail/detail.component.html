@@ -1,17 +1,19 @@
 <app-modal [visible]="true" (visibleChange)="close()" (next)="next()" (previous)="previous()">
-  <div bp="grid" #view *ngIf="armorVersion | async; let armorVersion">
-    <!--<i bp="5@sm 4@md" [class]="'sprite sprite-' + armorVersion.id"></i>-->
-    <img [src]="armorVersion.image" />
-    <div bp="7@sm 8@md">
-      <h1>{{armorVersion.name}} #{{armorVersion.id}}</h1>
-      <h2>Attacks</h2>
-      <div *ngFor="let attack of armorVersion.attacks" class="type" [ngClass]="attack">
-        {{attack.name}}
+  <div *ngIf="armor | async; let armor">
+    <!--<i bp="5@sm 4@md" [class]="'sprite sprite-' + armor.id"></i>-->
+    <div *ngFor="let version of armor.versions">
+      <div bp="grid" #view>
+        <div bp="6">
+          <img [src]="version.image"/>
+        </div>
+        <div bp="6">
+          <h1>{{armor.name}} #{{version.name}}</h1>
+          <h2>Attacks</h2>
+          <div *ngFor="let attack of version.attacks" class="type" [ngClass]="attack">
+            {{attack.name}}
+          </div>
+        </div>
       </div>
-      <p>
-        <strong>Height:</strong> {{armorVersion.height / 10}} m
-        <strong>Weight:</strong> {{armorVersion.weight / 10}} kg
-      </p>
     </div>
   </div>
 </app-modal>

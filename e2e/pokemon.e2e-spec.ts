@@ -5,19 +5,19 @@ function sleep() {
   browser.driver.sleep(1500); // sleep for demonstration reasons
 }
 
-describe('ng-pokedex allVersions view', function () {
+describe('ng-pokedex allArmors view', function () {
   let page: PokemonPage;
 
   beforeEach(() => {
     page = new PokemonPage();
   });
 
-  it('should display a list of allVersions', () => {
+  it('should display a list of allArmors', () => {
     page.navigateTo();
     expect(page.getPokemonCardElements().count()).toBe(151);
   });
 
-  it('should open and view a particular allVersions', () => {
+  it('should open and view a particular allArmors', () => {
     page.navigateTo();
     page.getFirstPokemonCardElement().click();
 
@@ -25,7 +25,7 @@ describe('ng-pokedex allVersions view', function () {
     expect(page.getOpenModalHeadingElement().getText()).toBe('Bulbasaur #1');
   });
 
-  it('should open and allow arrow keys to navigate between allVersions', () => {
+  it('should open and allow arrow keys to navigate between allArmors', () => {
     page.navigateTo();
     page.getFirstPokemonCardElement().click();
     page.selectNextKey();
