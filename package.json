@@ -5,7 +5,8 @@
   "description": "Saint Seiya index",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start:": "node server.js",
+    "start:dev": "ng serve",
     "start:prod": "ng build --prod && lite-server --baseDir dist/ng-pokedex",
     "build": "ng build",
     "build:prod": "npm run lint && ng build --prod --stats-json",
