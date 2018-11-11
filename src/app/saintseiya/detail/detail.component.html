@@ -8,6 +8,9 @@
         </div>
         <div bp="6">
           <h1>{{armor.name}} #{{version.name}}</h1>
+          <div class="type" [ngClass]="armor.category.name.toLowerCase()">
+            {{armor.category.name}}
+          </div>
           <h2>Attacks</h2>
           <div *ngFor="let attack of version.attacks" class="type" [ngClass]="attack">
             {{attack.name}}
