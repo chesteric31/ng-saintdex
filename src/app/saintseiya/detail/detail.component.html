@@ -3,10 +3,10 @@
     <!--<i bp="5@sm 4@md" [class]="'sprite sprite-' + armor.id"></i>-->
     <div *ngFor="let version of armor.versions">
       <div bp="grid" #view>
-        <div bp="6">
+        <div bp="6@md">
           <img [src]="version.image"/>
         </div>
-        <div bp="6">
+        <div bp="6@md">
           <h1>{{armor.name}} #{{version.name}}</h1>
           <div class="type" [ngClass]="armor.category.name.toLowerCase()">
             {{armor.category.name}}
