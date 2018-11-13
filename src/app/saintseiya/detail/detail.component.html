@@ -15,6 +15,14 @@
           <div *ngFor="let attack of version.attacks" class="type" [ngClass]="attack">
             {{attack.name}}
           </div>
+          <h2>Strengths</h2>
+          <div *ngFor="let strength of armor.strengths">
+            <div class="strength-container">
+              <div class="strength" [style.width]="strength.amount * 20 + '%'">
+                &nbsp;{{strength.strength.name}}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
