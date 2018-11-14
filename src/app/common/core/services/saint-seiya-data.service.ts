@@ -14,7 +14,7 @@ export class SaintSeiyaDataService {
 
     const url = 'https://ksams.herokuapp.com/api/v2/armors/';
     const devUrl ='http://localhost:8081/api/v2/armors/';
-    this.allArmors = this.http.get<Armor[]>(devUrl  , {params});
+    this.allArmors = this.http.get<Armor[]>(url, {params});
   }
 
 }
