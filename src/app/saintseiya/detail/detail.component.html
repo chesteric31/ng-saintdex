@@ -1,5 +1,18 @@
 <app-modal [visible]="true" (visibleChange)="close()" (next)="next()" (previous)="previous()">
   <div *ngIf="armor | async; let armor">
+    <div>
+      <h1>{{armor.name}}</h1>
+    </div>
+    <div>
+      <h2>Strengths</h2>
+      <div *ngFor="let strength of armor.strengths">
+        <div class="strength-container">
+          <div class="strength" [style.width]="strength.amount * 20 + '%'">
+            &nbsp;{{strength.strength.name}}
+          </div>
+        </div>
+      </div>
+    </div>
     <!--<i bp="5@sm 4@md" [class]="'sprite sprite-' + armor.id"></i>-->
     <div *ngFor="let version of armor.versions">
       <div bp="grid" #view>
@@ -7,21 +20,13 @@
           <img [src]="version.image"/>
         </div>
         <div bp="6@md">
-          <h1>{{armor.name}} #{{version.name}}</h1>
+          <h1>{{version.name}}</h1>
           <div class="type" [ngClass]="armor.category.name.toLowerCase()">
             {{armor.category.name}}
           </div>
           <h2>Attacks</h2>
           <div *ngFor="let attack of version.attacks" class="type" [ngClass]="attack">
             {{attack.name}}
-          </div>
-          <h2>Strengths</h2>
-          <div *ngFor="let strength of armor.strengths">
-            <div class="strength-container">
-              <div class="strength" [style.width]="strength.amount * 20 + '%'">
-                &nbsp;{{strength.strength.name}}
-              </div>
-            </div>
           </div>
         </div>
       </div>
