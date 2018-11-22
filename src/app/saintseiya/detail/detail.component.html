@@ -2,6 +2,9 @@
   <div *ngIf="armor | async; let armor">
     <div>
       <h1>{{armor.name}}</h1>
+      <div class="type" [ngClass]="armor.category.name.toLowerCase()">
+        {{armor.category.name}}
+      </div>
     </div>
     <div>
       <h2>Strengths</h2>
@@ -17,13 +20,11 @@
     <div *ngFor="let version of armor.versions">
       <div bp="grid" #view>
         <div bp="6@md">
-          <img [src]="version.image"/>
+          <img class="card-img-responsive" [src]="version.image"/>
         </div>
         <div bp="6@md">
           <h1>{{version.name}}</h1>
-          <div class="type" [ngClass]="armor.category.name.toLowerCase()">
-            {{armor.category.name}}
-          </div>
+          <hr />
           <h2>Attacks</h2>
           <div *ngFor="let attack of version.attacks" class="type" [ngClass]="attack">
             {{attack.name}}

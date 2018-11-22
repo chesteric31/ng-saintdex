@@ -4,13 +4,13 @@
   overflow: hidden;
   background: $color-white;
   border-radius: 2px;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
   padding: 16px;
   width: 100%;
   display: block;
 }
 
-.card--media{
+.card--media {
   display: block;
   width: 100%;
   padding: 10px 14px;
@@ -29,7 +29,7 @@
     background-color: $color-img-background;
     cursor: pointer;
     object-fit: cover;
-    position:  absolute;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -43,4 +43,13 @@
     font-weight: bolder;
     margin-top: 20px;
   }
+}
+
+.card-img-responsive {
+  display: block;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  height: auto;
 }
