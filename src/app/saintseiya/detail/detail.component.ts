@@ -33,7 +33,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    // this.title.setTitle('Search for Armors');
+    this.title.setTitle('NG-Saintdex');
   }
 
   next() {
