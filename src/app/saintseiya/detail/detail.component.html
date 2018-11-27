@@ -1,5 +1,5 @@
 <app-modal [visible]="true" (visibleChange)="close()" (next)="next()" (previous)="previous()">
-  <div *ngIf="armor | async; let armor">
+  <div *ngIf="armor | async; let armor;">
     <div>
       <h1>{{armor.name}}</h1>
       <div class="type" [ngClass]="armor.category.name.toLowerCase()">
@@ -17,18 +17,18 @@
       </div>
     </div>
     <!--<i bp="5@sm 4@md" [class]="'sprite sprite-' + armor.id"></i>-->
-    <div *ngFor="let version of armor.versions">
-      <div bp="grid" #view>
-        <div bp="6@md">
-          <img class="card-img-responsive" [src]="version.image"/>
-        </div>
-        <div bp="6@md">
-          <h1>{{version.name}}</h1>
-          <hr />
-          <h2>Attacks</h2>
-          <div *ngFor="let attack of version.attacks" class="type" [ngClass]="attack">
-            {{attack.name}}
-          </div>
+    <div bp="grid" #view>
+      <div bp="6@md" class="image-container">
+        <button [disabled]="0 == currentIndex" class="btn-previous" (click)="previous()">&nbsp;<&nbsp;</button>
+        <img class="card-img-responsive" [src]="armor.versions[currentIndex].image"/>
+        <button [disabled]="currentIndex == armor.versions.length -1" class="btn-next" (click)="next()">&nbsp;>&nbsp;</button>
+      </div>
+      <div bp="6@md">
+        <h1>{{armor.versions[currentIndex].name}}</h1>
+        <hr/>
+        <h2>Attacks</h2>
+        <div *ngFor="let attack of armor.versions[currentIndex].attacks" class="type" [ngClass]="attack">
+          {{attack.name}}
         </div>
       </div>
     </div>

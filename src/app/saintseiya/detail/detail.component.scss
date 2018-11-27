@@ -104,7 +104,7 @@ h1 {
 
 .strength-container {
   width: 100%;
-  height: 1.5em;
+  height: 1em;
   position: relative;
   background-color: #757575;
   border-radius: 16px;
@@ -118,4 +118,43 @@ h1 {
   line-height: inherit;
   border-radius: 16px;
   font-style: italic;
+}
+
+
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.image-container .btn-next {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #757575;
+  color: $color-saintdex-gold;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 0px;
+}
+
+.image-container .btn-previous {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #757575;
+  color: $color-saintdex-gold;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 0px;
+}
+
+.image-container .btn:hover {
+  background-color: grey;
 }

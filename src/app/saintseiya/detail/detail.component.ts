@@ -4,7 +4,7 @@ import {Title} from '@angular/platform-browser';
 import {Observable} from 'rxjs';
 import {distinctUntilChanged, map, mergeMap, tap} from 'rxjs/operators';
 import {SaintSeiyaDataService} from '../../common/core/services/saint-seiya-data.service';
-import {Armor} from '../../common/interfaces/saint-seiya';
+import {Armor, ArmorVersion} from '../../common/interfaces/saint-seiya';
 
 @Component({
   selector: 'app-saintseiya-detail',
@@ -14,6 +14,7 @@ import {Armor} from '../../common/interfaces/saint-seiya';
 export class DetailComponent implements OnInit, OnDestroy {
 
   armor: Observable<Armor>;
+  currentIndex = 0;
 
   constructor(
     private title: Title,
@@ -37,15 +38,11 @@ export class DetailComponent implements OnInit, OnDestroy {
   }
 
   next() {
-    const paramId = +this.activatedRoute.snapshot.params.id;
-    const id = paramId === 1 ? 151 : paramId - 1;
-    this.router.navigateByUrl(`/saintseiya/${id}`);
+    this.currentIndex++;
   }
 
   previous() {
-    const paramId = +this.activatedRoute.snapshot.params.id;
-    const id = paramId < 151 ? paramId + 1 : 1;
-    this.router.navigateByUrl(`/saintseiya/${id}`);
+    this.currentIndex--;
   }
 
   close() {
