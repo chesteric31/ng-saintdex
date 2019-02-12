@@ -7,7 +7,7 @@
     "ng": "ng",
     "start:": "node server.js",
     "start:dev": "ng serve",
-    "start:prod": "ng build --prod && lite-server --baseDir dist/ng-pokedex",
+    "start:prod": "ng build --prod && lite-server --baseDir dist/ng-saintdex",
     "build": "ng build --aot --prod",
     "build:prod": "npm run lint && ng build --prod --stats-json",
     "test": "ng test",
