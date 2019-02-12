@@ -8,14 +8,13 @@
     "start:": "node server.js",
     "start:dev": "ng serve",
     "start:prod": "ng build --prod && lite-server --baseDir dist/ng-pokedex",
-    "build": "ng build",
+    "build": "ng build --aot --prod",
     "build:prod": "npm run lint && ng build --prod --stats-json",
     "test": "ng test",
     "lint": "sass-lint && ng lint",
     "e2e": "ng e2e",
     "deploy": "npm run build:prod && firebase deploy",
-    "bundle-report": "webpack-bundle-analyzer dist/stats.json",
-    "postinstall": "ng build --aot --prod"
+    "bundle-report": "webpack-bundle-analyzer dist/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -66,5 +65,6 @@
   "engines": {
     "node": "8.11.3",
     "npm": "5.6.0"
-  }
+  },
+  "heroku-run-build-script": true
 }
