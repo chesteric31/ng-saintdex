@@ -19,8 +19,7 @@
     "updateMode": "prefetch",
     "resources": {
       "files": [
-        "/assets/images/logo.png",
-        "/assets/images/pokeball.png"
+        "/assets/images/logo.png"
       ]
     }
   }
@@ -29,7 +28,6 @@
     {
       "name": "api",
       "urls": [
-        "/api/pokemon.json"
       ],
       "cacheConfig": {
         "strategy": "performance",

@@ -1,11 +1,12 @@
-import { browser, element, by } from 'protractor';
+import {browser, element, by} from 'protractor';
 
-export class NgPokedexPage {
+export class NgPage {
+
   navigateTo() {
     return browser.get('/home');
   }
 
   getHeadingText() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('app-root app-header a')).getText();
   }
 }

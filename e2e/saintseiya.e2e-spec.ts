@@ -1,15 +1,15 @@
-import { PokemonPage } from './pokemon.po';
+import { SaintSeiyaPage } from './saintseiya.po';
 import { browser } from 'protractor';
 
 function sleep() {
   browser.driver.sleep(1500); // sleep for demonstration reasons
 }
 
-describe('ng-pokedex allArmors view', function () {
-  let page: PokemonPage;
+describe('ng-saintseiyadex allArmors view', function () {
+  let page: SaintSeiyaPage;
 
   beforeEach(() => {
-    page = new PokemonPage();
+    page = new SaintSeiyaPage();
   });
 
   it('should display a list of allArmors', () => {

@@ -1,6 +1,7 @@
-import { browser, element, by, Key } from 'protractor';
+import {browser, element, by, Key} from 'protractor';
 
-export class PokemonPage {
+export class SaintSeiyaPage {
+
   navigateTo() {
     return browser.get('/allArmors');
   }

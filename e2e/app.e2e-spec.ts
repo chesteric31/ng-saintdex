@@ -1,14 +1,15 @@
-import { NgPokedexPage } from './app.po';
+import {NgPage} from './app.po';
 
-describe('ng-pokedex App', function() {
-  let page: NgPokedexPage;
+describe('ng-saintdex App', function () {
+
+  let page: NgPage;
 
   beforeEach(() => {
-    page = new NgPokedexPage();
+    page = new NgPage();
   });
 
-  // it('should display heading saying NG-Pokédex', () => {
-  //   page.navigateTo();
-  //   expect(page.getHeadingText()).toEqual('NG-Pokédex');
-  // });
+  it('should display heading saying NG-Saintdex', () => {
+    page.navigateTo();
+    expect(page.getHeadingText()).toEqual('NG-Saintdex');
+  });
 });
