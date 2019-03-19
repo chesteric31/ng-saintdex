@@ -9,7 +9,7 @@
     "start:dev": "ng serve",
     "start:prod": "ng build --prod && lite-server --baseDir dist/ng-saintdex",
     "build": "ng build",
-    "build:prod": "npm run lint && ng build --prod --stats-json",
+    "build:prod": "npm run lint && ng build --prod --env=prod --stats-json",
     "test": "ng test",
     "lint": "sass-lint && ng lint",
     "e2e": "ng e2e",
