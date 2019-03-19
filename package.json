@@ -7,7 +7,7 @@
     "ng": "ng",
     "start:": "node server.js",
     "start:dev": "ng serve",
-    "start:prod": "ng build --prod && lite-server --baseDir dist/ng-saintdex",
+    "start:prod": "ng build --prod --env=prod && lite-server --baseDir dist/ng-saintdex",
     "build": "ng build",
     "build:prod": "npm run lint && ng build --prod --env=prod --stats-json",
     "test": "ng test",
