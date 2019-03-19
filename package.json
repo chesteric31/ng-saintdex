@@ -15,7 +15,7 @@
     "e2e": "ng e2e",
     "deploy": "npm run build:prod && firebase deploy",
     "bundle-report": "webpack-bundle-analyzer dist/stats.json",
-    "postinstall": "ng build --aot --prod --configuration=production"
+    "postinstall": "ng build --aot --prod --target=production"
   },
   "private": true,
   "dependencies": {
