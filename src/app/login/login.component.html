@@ -1,6 +1,6 @@
 <app-modal [visible]="true" (visibleChange)="close()">
   <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-    <div bp="grid" #view>
+    <div bp="grid">
       <div bp="12" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
         <input type="text" placeholder="username"
                name="username" [(ngModel)]="model.username"
@@ -16,7 +16,7 @@
         </div>
       </div>
       <div bp="12">
-        <button type="submit" class="btn--raised" [disabled]="loading">login</button>
+        <button type="submit" class="btn--raised">login</button>
       </div>
     </div>
   </form>
