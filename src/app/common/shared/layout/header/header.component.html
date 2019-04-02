@@ -5,10 +5,14 @@
 
   <a routerLink="saintseiya" [attr.tabindex]="navOpen ? -1 : 0" class="logo">NG-Saintdex</a>
 
+  <a class="logout" *ngIf="isAuthenticated()" [routerLink]="['/login']" (click) ="logout()">Logout</a>
+  <div class="username" *ngIf="isAuthenticated()">Hi {{username}}!</div>
+
   <div [class.open-nav]="navOpen">
     <div class="menu-overlay" (click)="navOpen = !navOpen"></div>
     <nav class="nav" (click)="navOpen = !navOpen" [attr.aria-hidden]="!navOpen">
       <a routerLink="saintseiya" class="nav__link" [attr.tabindex]="navOpen ? 0 : -1">Saint Seiya</a>
+      <a routerLink="admin" class="nav__link" [attr.tabindex]="navOpen ? 0 : -1">Administration</a>
       <a routerLink="about" class="nav__link" [attr.tabindex]="navOpen ? 0 : -1">About</a>
     </nav>
   </div>

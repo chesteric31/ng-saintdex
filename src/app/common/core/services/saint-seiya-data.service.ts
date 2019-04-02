@@ -12,7 +12,7 @@ export class SaintSeiyaDataService {
 
   constructor(private http: HttpClient) {
     const params = new HttpParams().set('scaleHeight', '185').set('scaleWidth', '185');
-    const url = environment.apiUrl;
+    const url = environment.apiUrl + 'v2/armors/';
     this.allArmors = this.http.get<Armor[]>(url, {params});
   }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import {AuthService} from '../../../../security/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,19 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
   navOpen = false;
-  constructor() { }
+  username: string;
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.user().subscribe(principal => {
+      this.username = principal['name'];
+    }, error => {
+      if (error.status == 401) {
+        alert('Unauthorized!');
+      }
+    })
   }
 
   @HostListener('window:keyup', ['$event'])
@@ -17,5 +27,13 @@ export class HeaderComponent implements OnInit {
     if (event.keyCode === 27 && this.navOpen === true) {
       this.navOpen = false;
     }
+  }
+
+  logout() {
+    sessionStorage.setItem('token', '');
+  }
+
+  isAuthenticated() {
+    return this.authService.isAuthenticated();
   }
 }

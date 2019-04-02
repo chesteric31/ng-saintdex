@@ -20,6 +20,21 @@ header {
   text-decoration: none;
 }
 
+.username {
+  font-size: 1.3em;
+  float: right;
+  color: $color-grey-dark;
+  padding: 12px;
+}
+
+.logout {
+  font-size: 1.3em;
+  float: right;
+  color: $color-grey-dark;
+  padding: 12px;
+  text-decoration: none;
+}
+
 .btn--clear {
   color: $color-grey-dark;
   float: left;
