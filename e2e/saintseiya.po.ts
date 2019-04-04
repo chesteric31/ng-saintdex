@@ -6,11 +6,11 @@ export class SaintSeiyaPage {
     return browser.get('/allArmors');
   }
 
-  getPokemonCardElements() {
+  getCardElements() {
     return element.all(by.css('.card--media'));
   }
 
-  getFirstPokemonCardElement() {
+  getFirstCardElement() {
     return element(by.css('.card--media'));
   }
 

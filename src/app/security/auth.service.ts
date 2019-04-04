@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {Login} from '../login/login.component';
+import {empty} from 'rxjs/internal/Observer';
 
 @Injectable()
 export class AuthService {
@@ -33,12 +34,17 @@ export class AuthService {
   }
 
   user() {
+    if (this.isAuthenticated()) {
     const url = environment.apiUrl + 'login/user/';
     let headers = new HttpHeaders({
       'Authorization': 'Basic ' + sessionStorage.getItem('token')
     });
 
     let options = { headers: headers };
+    console.log('ee', options);
     return this.http.post<Login>(url, {}, options);
+    } else {
+      return of(empty);
+    }
   }
 }

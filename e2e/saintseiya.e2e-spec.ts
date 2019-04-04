@@ -14,12 +14,12 @@ describe('ng-saintseiyadex allArmors view', function () {
 
   it('should display a list of allArmors', () => {
     page.navigateTo();
-    expect(page.getPokemonCardElements().count()).toBe(151);
+    expect(page.getCardElements().count()).toBe(151);
   });
 
   it('should open and view a particular allArmors', () => {
     page.navigateTo();
-    page.getFirstPokemonCardElement().click();
+    page.getFirstCardElement().click();
 
     expect(page.getOpenModalElement()).toBeTruthy();
     expect(page.getOpenModalHeadingElement().getText()).toBe('Bulbasaur #1');
@@ -27,7 +27,7 @@ describe('ng-saintseiyadex allArmors view', function () {
 
   it('should open and allow arrow keys to navigate between allArmors', () => {
     page.navigateTo();
-    page.getFirstPokemonCardElement().click();
+    page.getFirstCardElement().click();
     page.selectNextKey();
 
     expect(page.getOpenModalHeadingElement().getText()).toBe('Ivysaur #2');
