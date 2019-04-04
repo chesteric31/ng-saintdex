@@ -33,18 +33,13 @@ export class AuthService {
     return this.http.post<Login>(url, {username: login.username, password: login.password});
   }
 
-  user() {
-    if (this.isAuthenticated()) {
+  user(): Observable<Login> {
     const url = environment.apiUrl + 'login/user/';
     let headers = new HttpHeaders({
       'Authorization': 'Basic ' + sessionStorage.getItem('token')
     });
 
-    let options = { headers: headers };
-    console.log('ee', options);
+    let options = {headers: headers};
     return this.http.post<Login>(url, {}, options);
-    } else {
-      return of(empty);
-    }
   }
 }

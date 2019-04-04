@@ -13,13 +13,15 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.authService.user().subscribe(principal => {
-      this.username = principal['name'];
-    }, error => {
-      if (error.status == 401) {
-        alert('Unauthorized!');
-      }
-    })
+    if (this.authService.isAuthenticated()) {
+      this.authService.user().subscribe(principal => {
+        this.username = principal['name'];
+      }, error => {
+        if (error.status == 401) {
+          alert('Unauthorized!');
+        }
+      })
+    }
   }
 
   @HostListener('window:keyup', ['$event'])
