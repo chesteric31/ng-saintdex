@@ -6,21 +6,21 @@ import {AuthService} from './security/auth.service';
 export const routes: Routes = [
   {
     path: '',
-    loadChildren: 'app/saintseiya/saint-seiya.module#SaintSeiyaModule'
+    loadChildren: () => import('app/saintseiya/saint-seiya.module').then(m => m.SaintSeiyaModule)
   },
   {
     path: 'about',
-    loadChildren: 'app/about/about.module#AboutModule'
+    loadChildren: () => import('app/about/about.module').then(m => m.AboutModule)
   },
   {
     path: 'admin',
-    loadChildren: 'app/admin/admin.module#AdminModule',
+    loadChildren: () => import('app/admin/admin.module').then(m => m.AdminModule),
     canActivate: [RoleGuardService],
     data: { role: 'ADMIN'}
   },
   {
     path: 'login',
-    loadChildren: 'app/login/login.module#LoginModule'
+    loadChildren: () => import('app/login/login.module').then(m => m.LoginModule)
   }
 ];
 
