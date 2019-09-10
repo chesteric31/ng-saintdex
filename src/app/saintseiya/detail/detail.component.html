@@ -19,9 +19,9 @@
     <!--<i bp="5@sm 4@md" [class]="'sprite sprite-' + armor.id"></i>-->
     <div bp="grid" #view>
       <div bp="6@md" class="image-container">
-        <button [disabled]="0 == currentIndex" class="btn-previous" (click)="previous()">&nbsp;<&nbsp;</button>
+        <button [disabled]="0 == currentIndex" class="btn-previous" (click)="previous()"><i class="fas fa-arrow-left"></i></button>
         <img class="card-img-responsive" [src]="armor.versions[currentIndex].image"/>
-        <button [disabled]="currentIndex == armor.versions.length -1" class="btn-next" (click)="next()">&nbsp;>&nbsp;</button>
+        <button [disabled]="currentIndex == armor.versions.length -1" class="btn-next" (click)="next()"><i class="fas fa-arrow-right"></i></button>
       </div>
       <div bp="6@md">
         <h1>{{armor.versions[currentIndex].name}}</h1>

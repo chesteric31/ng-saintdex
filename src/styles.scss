@@ -10,3 +10,10 @@
 @import './styles/components/_card';
 @import './styles/components/_inputs';
 @import './styles/_sprites';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
+$fa-font-path: '../node_modules/@fortawesome/fontawesome-free/webfonts';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/v4-shims';
