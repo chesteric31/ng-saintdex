@@ -1,13 +1,20 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {Login} from '../login/login.component';
 
 @Injectable()
 export class AuthService {
 
+  private authenticationConfirmedSource = new Subject<string>();
+  authenticationConfirmedSource$ = this.authenticationConfirmedSource.asObservable();
+
   constructor(private http: HttpClient) {
+  }
+
+  confirmAuthentication(confirmation: string) {
+    this.authenticationConfirmedSource.next(confirmation);
   }
 
   isAuthenticated() {
@@ -40,5 +47,15 @@ export class AuthService {
 
     let options = {headers: headers};
     return this.http.post<Login>(url, {}, options);
+  }
+
+  getLogin() {
+    let login: string;
+    const item = sessionStorage.getItem('token');
+    const credentials = atob(item).split(':');
+    if (credentials && credentials.length > 0) {
+      login = credentials[0];
+    }
+    return login;
   }
 }

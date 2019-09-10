@@ -6,7 +6,7 @@
   <a routerLink="saintseiya" [attr.tabindex]="navOpen ? -1 : 0" class="logo">NG-Saintdex</a>
 
   <a class="logout" *ngIf="isAuthenticated()" [routerLink]="['/login']" (click) ="logout()">Logout</a>
-  <div class="username" *ngIf="isAuthenticated()">Hi {{username}}!</div>
+  <div class="username" *ngIf="isAuthenticated()">Hi {{login}}!</div>
 
   <div [class.open-nav]="navOpen">
     <div class="menu-overlay" (click)="navOpen = !navOpen"></div>

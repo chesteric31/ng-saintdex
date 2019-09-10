@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import {Component, OnInit, HostListener} from '@angular/core';
 import {AuthService} from '../../../../security/auth.service';
 
 @Component({
@@ -9,19 +9,15 @@ import {AuthService} from '../../../../security/auth.service';
 export class HeaderComponent implements OnInit {
 
   navOpen = false;
-  username: string;
-  constructor(private authService: AuthService) { }
+  login: string;
+
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit() {
-    if (this.authService.isAuthenticated()) {
-      this.authService.user().subscribe(principal => {
-        this.username = principal['name'];
-      }, error => {
-        if (error.status == 401) {
-          alert('Unauthorized!');
-        }
-      })
-    }
+    this.authService.authenticationConfirmedSource$.subscribe(confirmation => {
+      this.login = this.authService.getLogin();
+    });
   }
 
   @HostListener('window:keyup', ['$event'])

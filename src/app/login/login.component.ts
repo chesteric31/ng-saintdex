@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.model).subscribe((login: Login) => {
       if (login) {
         sessionStorage.setItem('token', btoa(login.username + ':' + login.password + ':' + login.roles));
+        this.authService.confirmAuthentication('confirm');
         this.router.navigate(['']);
       } else {
         alert('Authentication failed!');
