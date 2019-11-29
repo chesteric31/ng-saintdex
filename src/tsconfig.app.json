@@ -3,10 +3,11 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
-    "types": []
+    "types": [],
+    "resolveJsonModule": true
   },
   "angularCompilerOptions": {
-    "enableIvy": false
+    "enableIvy": true
    },
   "exclude": [
     "test.ts",
