@@ -3,7 +3,7 @@ import {Title} from '@angular/platform-browser';
 import {Observable, Subject} from 'rxjs';
 import {map, startWith, switchMap} from 'rxjs/operators';
 
-import {Armor, ArmorVersion} from '../../common/interfaces/saint-seiya';
+import {Armor, Category} from '../../common/interfaces/saint-seiya';
 import {SaintSeiyaDataService} from '../../common/core/services/saint-seiya-data.service';
 
 @Injectable()
@@ -11,6 +11,7 @@ export class SaintSeiyaService {
 
   readonly allArmors: Observable<Armor[]>;
   private searchTerm = new Subject<string>();
+  allCategories: Observable<Category[]>;
 
   constructor(
     private title: Title,
@@ -22,6 +23,11 @@ export class SaintSeiyaService {
         startWith(armor)
       ))
     );
+    this.allCategories = this.service.allCategories;
+  }
+
+  addCategory(category: Category) {
+    return this.service.addCategory(category);
   }
 
   setTitle() {

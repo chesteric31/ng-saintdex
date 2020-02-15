@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
+import {SaintSeiyaService} from "../saintseiya/list/saint-seiya.service";
+import {Observable} from "rxjs";
+import {Category} from "../common/interfaces/saint-seiya";
 
 @Component({
   selector: 'app-admin',
@@ -8,9 +11,22 @@ import {Title} from '@angular/platform-browser';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private title: Title) { }
+  categories: Observable<Category[]>;
+
+  category: Category;
+
+  constructor(private title: Title,
+              private service: SaintSeiyaService) { }
 
   ngOnInit() {
     this.title.setTitle('Administer NG-Saintdex');
+    this.categories = this.service.allCategories;
+    this.category = {id: 0, name: ""};
+  }
+
+  addCategory() {
+    this.service.addCategory(this.category).subscribe((res: Category) => {
+      console.log('c',res)
+    });
   }
 }

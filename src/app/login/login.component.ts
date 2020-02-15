@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {Router} from '@angular/router';
 import {AuthService} from '../security/auth.service';
+import {HttpResponse} from "@angular/common/http";
 
 export class Login {
   username: string;
@@ -25,8 +26,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.title.setTitle('Login Saintdex');
-    sessionStorage.setItem('token', '');
+    this.clearStorage();
     this.model = new Login();
+  }
+
+  private clearStorage() {
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('roles');
   }
 
   close() {
@@ -34,14 +41,18 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.authService.login(this.model).subscribe((login: Login) => {
-      if (login) {
-        sessionStorage.setItem('token', btoa(login.username + ':' + login.password + ':' + login.roles));
+    this.authService.login(this.model).subscribe((response: HttpResponse<Login>) => {
+      if (response) {
+        let headers = response.headers;
+        const jwtToken = headers.get("authorization").replace('Bearer', '').trim();
+        sessionStorage.setItem('token', jwtToken);
+        sessionStorage.setItem('roles', headers.get('roles'));
+        sessionStorage.setItem('username', this.model.username);
         this.authService.confirmAuthentication('confirm');
         this.router.navigate(['']);
       } else {
         alert('Authentication failed!');
       }
-    });
+    }, error => console.error(error));
   }
 }

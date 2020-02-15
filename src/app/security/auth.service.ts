@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import {Observable, Subject} from 'rxjs';
 import {Login} from '../login/login.component';
 
@@ -24,19 +24,20 @@ export class AuthService {
 
   hasRole(role: string) {
     if (this.isAuthenticated()) {
-      const item = sessionStorage.getItem('token');
-      const credentials = atob(item).split(':');
-      if (credentials && credentials.length > 0) {
-        const roles = credentials[2].split(',');
+      const roles = sessionStorage.getItem('roles');
+      if (roles && roles.length > 0) {
         return roles.indexOf(role) > -1;
       }
     }
     return false;
   }
 
-  login(login: Login): Observable<Login> {
-    const url = environment.apiUrl + 'login/';
-    return this.http.post<Login>(url, {username: login.username, password: login.password});
+  login(login: Login): Observable<HttpResponse<Login>> {
+    const url = environment.apiUrl + 'login';
+    let form = new FormData();
+    form.append('username', login.username);
+    form.append('password', login.password);
+    return this.http.post<Login>(url, form, { observe: 'response' });
   }
 
   user(): Observable<Login> {
@@ -51,10 +52,9 @@ export class AuthService {
 
   getLogin() {
     let login: string;
-    const item = sessionStorage.getItem('token');
-    const credentials = atob(item).split(':');
-    if (credentials && credentials.length > 0) {
-      login = credentials[0];
+    const username = sessionStorage.getItem('username');
+    if (username) {
+      login = username;
     }
     return login;
   }

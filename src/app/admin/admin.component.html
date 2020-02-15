@@ -1,1 +1,12 @@
-admin
+<h2>Categories are:</h2>
+<ul>
+  <li *ngFor="let category of categories | async">
+    <div class="type" [ngClass]="category.name.toLowerCase()">
+      {{category.name}}
+    </div>
+  </li>
+</ul>
+<div bp="grid">
+  <input bp="10" type="text" [(ngModel)]="category.name" name="name">
+  <button (click)="addCategory()" class="btn--raised" bp="2">add</button>
+</div>

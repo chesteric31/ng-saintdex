@@ -1,9 +1,9 @@
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {HttpClientModule} from '@angular/common/http';
+import {ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
 
-import { ViewportService } from './services/viewport.service';
-import { SaintSeiyaDataService } from './services/saint-seiya-data.service';
+import {ViewportService} from './services/viewport.service';
+import {SaintSeiyaDataService} from './services/saint-seiya-data.service';
 
 @NgModule({
   imports: [

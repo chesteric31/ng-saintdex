@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Title} from '@angular/platform-browser';
 import {Observable} from 'rxjs';
@@ -9,7 +9,8 @@ import {Armor} from '../../common/interfaces/saint-seiya';
 @Component({
   selector: 'app-saintseiya-detail',
   templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss']
+  styleUrls: ['./detail.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DetailComponent implements OnInit, OnDestroy {
 
