@@ -6,11 +6,11 @@
     "types": [],
     "resolveJsonModule": true
   },
-  "angularCompilerOptions": {
-    "enableIvy": true
-   },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts"
+  "files": [
+    "main.ts",
+    "polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
   ]
 }
