@@ -26,7 +26,7 @@ export class SaintSeiyaService {
     this.allCategories = this.service.allCategories;
   }
 
-  addCategory(category: Category) {
+  addCategory(category: Category): Observable<Category> {
     return this.service.addCategory(category);
   }
 

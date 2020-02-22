@@ -24,9 +24,7 @@ export class AdminComponent implements OnInit {
     this.category = {id: 0, name: ""};
   }
 
-  addCategory() {
-    this.service.addCategory(this.category).subscribe((res: Category) => {
-      console.log('c',res)
-    });
+  async addCategory() {
+    await this.service.addCategory(this.category).toPromise();
   }
 }

@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    sessionStorage.setItem('token', '');
+    sessionStorage.removeItem('token');
   }
 
   isAuthenticated() {

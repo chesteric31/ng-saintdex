@@ -20,11 +20,10 @@ export class SaintSeiyaDataService {
 
   addCategory(category: Category): Observable<Category> {
     let headers = new HttpHeaders({
-      'Authorization': 'Basic ' + sessionStorage.getItem('token')
+      'Authorization': 'Bearer ' + sessionStorage.getItem('token')
     });
 
     let options = {headers: headers};
-    console.log('add', options)
     delete category.id
     return this.http.post<Category>(environment.apiUrl + 'v2/categories/', category, options);
   }
