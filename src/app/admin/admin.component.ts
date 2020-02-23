@@ -48,4 +48,13 @@ export class AdminComponent implements OnInit {
   get categories(): Observable<Category[]> {
     return this._categories$.asObservable();
   }
+
+  deleteCategory(id: number) {
+    this.service.deleteCategory(id).subscribe((result) => {
+      let categories: Category[] = this._categories$.getValue();
+      let index = categories.findIndex((category) => category.id === id);
+      categories.splice(index, 1);
+      this._categories$.next(categories);
+    });
+  }
 }

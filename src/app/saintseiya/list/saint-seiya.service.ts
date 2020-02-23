@@ -41,4 +41,8 @@ export class SaintSeiyaService {
   private filter(armors: Armor[], value: string) {
     return armors.filter(p => value ? p.name.toLowerCase().includes(value.toLowerCase()) : armors);
   }
+
+  deleteCategory(id: number) {
+    return this.service.deleteCategory(id);
+  }
 }

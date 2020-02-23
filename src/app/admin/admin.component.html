@@ -4,6 +4,7 @@
     <div class="type" [ngClass]="category.name.toLowerCase()">
       {{category.name}}
     </div>
+    <button (click)="deleteCategory(category.id)" class="btn--raised">delete</button>
   </li>
 </ul>
 <div bp="grid">

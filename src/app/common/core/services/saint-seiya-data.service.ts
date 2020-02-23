@@ -27,4 +27,18 @@ export class SaintSeiyaDataService {
     delete category.id
     return this.http.post<Category>(environment.apiUrl + 'v2/categories/', category, options);
   }
+
+  deleteCategory(id: number) {
+    let options = this.buildOptions();
+    return this.http.delete<Category>(environment.apiUrl + 'v2/categories/' + id, options);
+  }
+
+  private buildOptions() {
+    let headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+    });
+
+    let options = {headers: headers};
+    return options;
+  }
 }
