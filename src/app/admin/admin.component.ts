@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {SaintSeiyaService} from "../saintseiya/list/saint-seiya.service";
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {Category} from "../common/interfaces/saint-seiya";
 
 @Component({
@@ -11,20 +11,41 @@ import {Category} from "../common/interfaces/saint-seiya";
 })
 export class AdminComponent implements OnInit {
 
-  categories: Observable<Category[]>;
-
+  private _categories$ = new BehaviorSubject<Category[]>([]);
   category: Category;
 
   constructor(private title: Title,
-              private service: SaintSeiyaService) { }
+              private service: SaintSeiyaService) {
+  }
 
   ngOnInit() {
     this.title.setTitle('Administer NG-Saintdex');
-    this.categories = this.service.allCategories;
+    this.loadInitialCategories();
     this.category = {id: 0, name: ""};
   }
 
-  async addCategory() {
-    await this.service.addCategory(this.category).toPromise();
+  private loadInitialCategories() {
+    this.service.allCategories
+      .subscribe(
+        (allCategories: Category[]) => {
+          this._categories$.next(allCategories);
+        }
+      );
+  }
+
+  addCategory() {
+    this.service.addCategory(this.category).subscribe((newCategory: Category) => {
+      this._categories$.value.push(newCategory);
+      this._categories$.next(this._categories$.value);
+      this.initNewCategory();
+    });
+  }
+
+  private initNewCategory() {
+    this.category = {id: 0, name: ""};
+  }
+
+  get categories(): Observable<Category[]> {
+    return this._categories$.asObservable();
   }
 }
