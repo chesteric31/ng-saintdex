@@ -45,4 +45,12 @@ export class SaintSeiyaService {
   deleteCategory(id: number) {
     return this.service.deleteCategory(id);
   }
+
+  addArmor(armor: Armor) {
+    return this.service.addArmor(armor);
+  }
+
+  deleteArmor(id: number) {
+    return this.service.deleteArmor(id);
+  }
 }

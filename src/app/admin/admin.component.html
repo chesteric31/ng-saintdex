@@ -1,13 +1,3 @@
-<h2>Categories are:</h2>
-<ul>
-  <li *ngFor="let category of categories | async">
-    <div class="type" [ngClass]="category.name.toLowerCase()">
-      {{category.name}}
-    </div>
-    <button (click)="deleteCategory(category.id)" class="btn--raised">delete</button>
-  </li>
-</ul>
-<div bp="grid">
-  <input bp="10" type="text" [(ngModel)]="category.name" name="name">
-  <button (click)="addCategory()" class="btn--raised" bp="2">add</button>
-</div>
+<app-admin-category (categoriesChange)="onCategoriesChanged($event)"></app-admin-category>
+<hr />
+<app-admin-armor [categories]="categories"></app-admin-armor>

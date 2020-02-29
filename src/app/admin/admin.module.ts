@@ -4,6 +4,8 @@ import {AdminComponent} from './admin.component';
 import {CommonModule} from "@angular/common";
 import {SaintSeiyaService} from "../saintseiya/list/saint-seiya.service";
 import {FormsModule} from "@angular/forms";
+import { AdminCategoryComponent } from './admin-category/admin-category.component';
+import { AdminArmorComponent } from './admin-armor/admin-armor.component';
 
 const routes: Routes = [
   {path: '', component: AdminComponent}
@@ -16,7 +18,9 @@ const routes: Routes = [
         FormsModule
     ],
   declarations: [
-    AdminComponent
+    AdminComponent,
+    AdminCategoryComponent,
+    AdminArmorComponent
   ],
   providers: [
     SaintSeiyaService

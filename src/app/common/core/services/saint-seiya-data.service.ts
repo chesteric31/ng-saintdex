@@ -19,11 +19,7 @@ export class SaintSeiyaDataService {
   }
 
   addCategory(category: Category): Observable<Category> {
-    let headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + sessionStorage.getItem('token')
-    });
-
-    let options = {headers: headers};
+    let options = this.buildOptions();
     delete category.id
     return this.http.post<Category>(environment.apiUrl + 'v2/categories/', category, options);
   }
@@ -40,5 +36,16 @@ export class SaintSeiyaDataService {
 
     let options = {headers: headers};
     return options;
+  }
+
+  addArmor(armor: Armor) {
+    let options = this.buildOptions();
+    delete armor.id
+    return this.http.post<Armor>(environment.apiUrl + 'v2/armors/', armor, options);
+  }
+
+  deleteArmor(id: number) {
+    let options = this.buildOptions();
+    return this.http.delete<Armor>(environment.apiUrl + 'v2/armors/' + id, options);
   }
 }

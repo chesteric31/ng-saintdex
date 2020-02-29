@@ -1,0 +1,14 @@
+<h2>Armors are:</h2>
+<ul>
+  <li *ngFor="let armor of armors | async">
+      {{armor.name}}
+    <button (click)="deleteArmor(armor.id)" class="btn--raised">delete</button>
+  </li>
+</ul>
+<div bp="grid">
+  <input bp="8" type="text" [(ngModel)]="armor.name" name="name">
+  <select bp="2" [(ngModel)]="armor.category">
+    <option *ngFor="let category of categories" [ngValue]="category">{{category.name}}</option>
+  </select>
+  <button (click)="addArmor()" class="btn--raised" bp="2">add</button>
+</div>
