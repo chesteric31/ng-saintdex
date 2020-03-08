@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Title} from "@angular/platform-browser";
 import {Category} from "../common/interfaces/saint-seiya";
+import {AdminArmorComponent} from "./admin-armor/admin-armor.component";
 
 @Component({
   selector: 'app-admin',
@@ -10,6 +11,8 @@ import {Category} from "../common/interfaces/saint-seiya";
 export class AdminComponent implements OnInit {
 
   categories: Category[];
+  @ViewChild(AdminArmorComponent) adminArmorComponent: AdminArmorComponent;
+  visible = false;
 
   constructor(private title: Title) {
   }
@@ -20,5 +23,13 @@ export class AdminComponent implements OnInit {
 
   onCategoriesChanged(categories: Category[]) {
     this.categories = categories;
+  }
+
+  showArmorModal() {
+    this.visible = !this.visible;
+  }
+
+  onVisibleChanged(visible: boolean) {
+    this.visible = visible;
   }
 }

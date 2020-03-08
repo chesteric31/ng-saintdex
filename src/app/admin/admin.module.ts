@@ -6,6 +6,7 @@ import {SaintSeiyaService} from "../saintseiya/list/saint-seiya.service";
 import {FormsModule} from "@angular/forms";
 import { AdminCategoryComponent } from './admin-category/admin-category.component';
 import { AdminArmorComponent } from './admin-armor/admin-armor.component';
+import {SharedModule} from "../common/shared/shared.module";
 
 const routes: Routes = [
   {path: '', component: AdminComponent}
@@ -15,7 +16,8 @@ const routes: Routes = [
     imports: [
         RouterModule.forChild(routes),
         CommonModule,
-        FormsModule
+        FormsModule,
+        SharedModule
     ],
   declarations: [
     AdminComponent,

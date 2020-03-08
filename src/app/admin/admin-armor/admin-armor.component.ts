@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 import {Armor, Category} from "../../common/interfaces/saint-seiya";
 import {SaintSeiyaService} from "../../saintseiya/list/saint-seiya.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-admin-armor',
@@ -14,7 +15,9 @@ export class AdminArmorComponent implements OnInit {
   armor: Armor;
   @Input() categories: Category[];
 
-  constructor(private service: SaintSeiyaService) { }
+  constructor(private service: SaintSeiyaService,
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     this.loadInitialArmors();
@@ -53,5 +56,9 @@ export class AdminArmorComponent implements OnInit {
       armors.splice(index, 1);
       this._armors$.next(armors);
     });
+  }
+
+  goToAddArmor() {
+    this.router.navigate(['admin', 'armor', 'add']);
   }
 }

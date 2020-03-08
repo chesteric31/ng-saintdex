@@ -1,14 +1,19 @@
-<h2>Armors are:</h2>
+<h2>Armors:</h2>
 <ul>
   <li *ngFor="let armor of armors | async">
-      {{armor.name}}
-    <button (click)="deleteArmor(armor.id)" class="btn--raised">delete</button>
+    <div bp="grid">
+      <div bp="10@sm" class="type" [ngClass]="armor.category.name.toLowerCase()">{{armor.name}}</div>
+      <button (click)="deleteArmor(armor.id)" class="btn--raised" bp="2@sm">delete</button>
+    </div>
   </li>
 </ul>
 <div bp="grid">
+  <button (click)="goToAddArmor()" class="btn--raised" bp="2@sm offset-11@sm">add</button>
+</div>
+<!--<div bp="grid">
   <input bp="8" type="text" [(ngModel)]="armor.name" name="name">
   <select bp="2" [(ngModel)]="armor.category">
     <option *ngFor="let category of categories" [ngValue]="category">{{category.name}}</option>
   </select>
   <button (click)="addArmor()" class="btn--raised" bp="2">add</button>
-</div>
+</div>-->
