@@ -8,8 +8,9 @@
   </li>
 </ul>
 <div bp="grid">
-  <button (click)="goToAddArmor()" class="btn--raised" bp="2@sm offset-11@sm">add</button>
+  <a [routerLink]="['./', 'armor-add']" class="btn--raised" bp="2@sm offset-11@sm">add</a>
 </div>
+
 <!--<div bp="grid">
   <input bp="8" type="text" [(ngModel)]="armor.name" name="name">
   <select bp="2" [(ngModel)]="armor.category">
@@ -17,3 +18,4 @@
   </select>
   <button (click)="addArmor()" class="btn--raised" bp="2">add</button>
 </div>-->
+<router-outlet></router-outlet>

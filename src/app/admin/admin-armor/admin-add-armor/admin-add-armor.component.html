@@ -1,0 +1,9 @@
+<app-modal visible="true" (visibleChange)="close()">
+  <div bp="grid">
+    <input bp="8" type="text" [(ngModel)]="armor.name" name="name">
+    <select bp="2" [(ngModel)]="armor.category">
+      <option *ngFor="let category of allCategories | async" [ngValue]="category">{{category.name}}</option>
+    </select>
+    <button (click)="addArmor()" class="btn--raised" bp="2">add</button>
+  </div>
+</app-modal>

@@ -4,25 +4,30 @@ import {AdminComponent} from './admin.component';
 import {CommonModule} from "@angular/common";
 import {SaintSeiyaService} from "../saintseiya/list/saint-seiya.service";
 import {FormsModule} from "@angular/forms";
-import { AdminCategoryComponent } from './admin-category/admin-category.component';
-import { AdminArmorComponent } from './admin-armor/admin-armor.component';
+import {AdminCategoryComponent} from './admin-category/admin-category.component';
+import {AdminArmorComponent} from './admin-armor/admin-armor.component';
 import {SharedModule} from "../common/shared/shared.module";
+import {AdminAddArmorComponent} from './admin-armor/admin-add-armor/admin-add-armor.component';
 
 const routes: Routes = [
-  {path: '', component: AdminComponent}
-];
+  {
+    path: '', component: AdminComponent, children: [
+      {path: 'armor-add', component: AdminAddArmorComponent}
+    ]
+  }];
 
 @NgModule({
-    imports: [
-        RouterModule.forChild(routes),
-        CommonModule,
-        FormsModule,
-        SharedModule
-    ],
+  imports: [
+    RouterModule.forChild(routes),
+    CommonModule,
+    FormsModule,
+    SharedModule
+  ],
   declarations: [
     AdminComponent,
     AdminCategoryComponent,
-    AdminArmorComponent
+    AdminArmorComponent,
+    AdminAddArmorComponent
   ],
   providers: [
     SaintSeiyaService

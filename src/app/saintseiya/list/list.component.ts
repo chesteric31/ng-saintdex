@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
 
-import {Armor, ArmorVersion} from '../../common/interfaces/saint-seiya';
-import { SaintSeiyaService } from './saint-seiya.service';
+import {Armor} from '../../common/interfaces/saint-seiya';
+import {SaintSeiyaService} from './saint-seiya.service';
 
 @Component({
   selector: 'app-saintseiya-list',

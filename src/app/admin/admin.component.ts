@@ -12,7 +12,6 @@ export class AdminComponent implements OnInit {
 
   categories: Category[];
   @ViewChild(AdminArmorComponent) adminArmorComponent: AdminArmorComponent;
-  visible = false;
 
   constructor(private title: Title) {
   }
@@ -23,13 +22,5 @@ export class AdminComponent implements OnInit {
 
   onCategoriesChanged(categories: Category[]) {
     this.categories = categories;
-  }
-
-  showArmorModal() {
-    this.visible = !this.visible;
-  }
-
-  onVisibleChanged(visible: boolean) {
-    this.visible = visible;
   }
 }
