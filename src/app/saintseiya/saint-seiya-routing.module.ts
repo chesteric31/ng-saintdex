@@ -7,9 +7,9 @@ import { DetailComponent } from './detail/detail.component';
 const routes: Routes = [
   { path: '', redirectTo: 'saintseiya', pathMatch: 'full' },
   {
-    path: 'saintseiya', component: ListComponent, children: [
-      { path: ':id', component: DetailComponent }
-    ]
+    path: 'saintseiya',
+    component: ListComponent,
+    children: [{ path: ':id', component: DetailComponent }]
   }
 ];
 
@@ -17,4 +17,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SaintSeiyaRoutingModule { }
+export class SaintSeiyaRoutingModule {}

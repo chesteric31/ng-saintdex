@@ -7,8 +7,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-
-  constructor(private title: Title) { }
+  constructor(private title: Title) {}
 
   ngOnInit() {
     this.title.setTitle('About Angular Saintdex');

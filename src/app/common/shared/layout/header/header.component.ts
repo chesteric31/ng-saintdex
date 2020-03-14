@@ -1,5 +1,5 @@
-import {Component, OnInit, HostListener} from '@angular/core';
-import {AuthService} from '../../../../security/auth.service';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { AuthService } from '../../../../security/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +7,10 @@ import {AuthService} from '../../../../security/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
   navOpen = false;
   login: string;
 
-  constructor(private authService: AuthService) {
-  }
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
     this.authService.authenticationConfirmedSource$.subscribe(confirmation => {

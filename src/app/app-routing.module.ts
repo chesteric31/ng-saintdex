@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
-import {RoleGuardService} from './security/role-guard.service';
-import {AuthService} from './security/auth.service';
+import { RoleGuardService } from './security/role-guard.service';
+import { AuthService } from './security/auth.service';
 
 export const routes: Routes = [
   {
@@ -16,7 +16,7 @@ export const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('app/admin/admin.module').then(m => m.AdminModule),
     canActivate: [RoleGuardService],
-    data: { role: 'ADMIN'}
+    data: { role: 'ADMIN' }
   },
   {
     path: 'login',
@@ -29,4 +29,4 @@ export const routes: Routes = [
   exports: [RouterModule],
   providers: [RoleGuardService, AuthService]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

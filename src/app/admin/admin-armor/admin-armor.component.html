@@ -2,7 +2,7 @@
 <ul>
   <li *ngFor="let armor of armors | async">
     <div bp="grid">
-      <div bp="10@sm" class="type" [ngClass]="armor.category.name.toLowerCase()">{{armor.name}}</div>
+      <div bp="10@sm" class="type" [ngClass]="armor.category.name.toLowerCase()">{{ armor.name }}</div>
       <button (click)="deleteArmor(armor.id)" class="btn--raised" bp="2@sm">delete</button>
     </div>
   </li>

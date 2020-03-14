@@ -1,7 +1,6 @@
-import {browser, element, by, Key} from 'protractor';
+import { browser, element, by, Key } from 'protractor';
 
 export class SaintSeiyaPage {
-
   navigateTo() {
     return browser.get('/allArmors');
   }
@@ -23,14 +22,23 @@ export class SaintSeiyaPage {
   }
 
   selectNextKey() {
-    browser.actions().sendKeys(Key.ARROW_RIGHT).perform();
+    browser
+      .actions()
+      .sendKeys(Key.ARROW_RIGHT)
+      .perform();
   }
 
   selectPrevKey() {
-    browser.actions().sendKeys(Key.ARROW_LEFT).perform();
+    browser
+      .actions()
+      .sendKeys(Key.ARROW_LEFT)
+      .perform();
   }
 
   selectEscapeKey() {
-    browser.actions().sendKeys(Key.ESCAPE).perform();
+    browser
+      .actions()
+      .sendKeys(Key.ESCAPE)
+      .perform();
   }
 }

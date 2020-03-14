@@ -1,16 +1,16 @@
 <div bp="grid 12">
-	<app-form-search (formChange)="search($event)"></app-form-search>
+  <app-form-search (formChange)="search($event)"></app-form-search>
 </div>
 
 <div bp="grid 6 4@md 2@lg">
-	<a *ngFor="let armor of armors | async" [routerLink]="['./', armor.id]" class="card--media">
-		<!--<i [class]="' sprite sprite-' + armor.id"></i>-->
+  <a *ngFor="let armor of armors | async" [routerLink]="['./', armor.id]" class="card--media">
+    <!--<i [class]="' sprite sprite-' + armor.id"></i>-->
     <img class="card-img-responsive" [src]="armor.versions[0].thumb" />
-		<div class="card--media__content">
-      {{armor.name}}
-      <span bp="float-right">#{{armor.id}}</span>
-		</div>
-	</a>
+    <div class="card--media__content">
+      {{ armor.name }}
+      <span bp="float-right">#{{ armor.id }}</span>
+    </div>
+  </a>
 </div>
 
 <router-outlet></router-outlet>

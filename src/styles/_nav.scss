@@ -49,7 +49,9 @@ $nav-break: 45em;
     position: relative;
     font-weight: bold;
 
-    &:hover, &:active, &:focus {
+    &:hover,
+    &:active,
+    &:focus {
       background: darken($color-white, 5%);
     }
   }
@@ -74,7 +76,8 @@ $nav-break: 45em;
     font-size: 1.5em;
     right: 0;
 
-    &:focus, &:active {
+    &:focus,
+    &:active {
       outline: none;
     }
   }

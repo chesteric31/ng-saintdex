@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
-import {Armor} from "../../common/interfaces/saint-seiya";
-import {SaintSeiyaService} from "../../saintseiya/list/saint-seiya.service";
+import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Armor } from '../../common/interfaces/saint-seiya';
+import { SaintSeiyaService } from '../../saintseiya/list/saint-seiya.service';
 
 @Component({
   selector: 'app-admin-armor',
@@ -9,24 +9,19 @@ import {SaintSeiyaService} from "../../saintseiya/list/saint-seiya.service";
   styleUrls: ['./admin-armor.component.css']
 })
 export class AdminArmorComponent implements OnInit {
-
   private _armors$ = new BehaviorSubject<Armor[]>([]);
   armor: Armor;
 
-  constructor(private service: SaintSeiyaService) {
-  }
+  constructor(private service: SaintSeiyaService) {}
 
   ngOnInit(): void {
     this.loadInitialArmors();
   }
 
   private loadInitialArmors() {
-    this.service.allArmors
-      .subscribe(
-        (allArmors: Armor[]) => {
-          this._armors$.next(allArmors);
-        }
-      );
+    this.service.allArmors.subscribe((allArmors: Armor[]) => {
+      this._armors$.next(allArmors);
+    });
   }
 
   get armors(): Observable<Armor[]> {
@@ -34,12 +29,11 @@ export class AdminArmorComponent implements OnInit {
   }
 
   deleteArmor(id: number) {
-    this.service.deleteArmor(id).subscribe((result) => {
+    this.service.deleteArmor(id).subscribe(result => {
       let armors: Armor[] = this._armors$.getValue();
-      let index = armors.findIndex((armor) => armor.id === id);
+      let index = armors.findIndex(armor => armor.id === id);
       armors.splice(index, 1);
       this._armors$.next(armors);
     });
   }
-
 }

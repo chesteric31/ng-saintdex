@@ -4,7 +4,7 @@
   "orientation": "portrait",
   "Scope": "/",
   "start_url": "/",
-  "description":"A fast progressive web app Saint Seiya Saintdex",
+  "description": "A fast progressive web app Saint Seiya Saintdex",
   "icons": [
     {
       "src": "/assets/images/icons/android-chrome-192x192.png",

@@ -8,8 +8,7 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule,
-  {
-    preserveWhitespaces: false,
-    // ngZone: 'noop'
-  });
+platformBrowserDynamic().bootstrapModule(AppModule, {
+  preserveWhitespaces: false
+  // ngZone: 'noop'
+});

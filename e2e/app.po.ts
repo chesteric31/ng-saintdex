@@ -1,7 +1,6 @@
-import {browser, element, by} from 'protractor';
+import { browser, element, by } from 'protractor';
 
 export class NgPage {
-
   navigateTo() {
     return browser.get('/home');
   }

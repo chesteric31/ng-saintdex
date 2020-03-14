@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import {Armor} from '../../common/interfaces/saint-seiya';
-import {SaintSeiyaService} from './saint-seiya.service';
+import { Armor } from '../../common/interfaces/saint-seiya';
+import { SaintSeiyaService } from './saint-seiya.service';
 
 @Component({
   selector: 'app-saintseiya-list',
@@ -11,12 +11,10 @@ import {SaintSeiyaService} from './saint-seiya.service';
   providers: [SaintSeiyaService]
 })
 export class ListComponent implements OnInit {
-
   armors: Observable<Armor[]>;
   showGrid = true;
 
-  constructor(
-    private service: SaintSeiyaService) { }
+  constructor(private service: SaintSeiyaService) {}
 
   ngOnInit() {
     this.service.setTitle();

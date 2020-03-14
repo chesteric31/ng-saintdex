@@ -1,7 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
-import {Category} from "../../common/interfaces/saint-seiya";
-import {SaintSeiyaService} from "../../saintseiya/list/saint-seiya.service";
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Category } from '../../common/interfaces/saint-seiya';
+import { SaintSeiyaService } from '../../saintseiya/list/saint-seiya.service';
 
 @Component({
   selector: 'app-admin-category',
@@ -9,13 +9,11 @@ import {SaintSeiyaService} from "../../saintseiya/list/saint-seiya.service";
   styleUrls: ['./admin-category.component.css']
 })
 export class AdminCategoryComponent implements OnInit {
-
   private _categories$ = new BehaviorSubject<Category[]>([]);
   @Output() categoriesChange = new EventEmitter();
   category: Category;
 
-  constructor(private service: SaintSeiyaService) {
-  }
+  constructor(private service: SaintSeiyaService) {}
 
   ngOnInit() {
     this.loadInitialCategories();
@@ -23,13 +21,10 @@ export class AdminCategoryComponent implements OnInit {
   }
 
   private loadInitialCategories() {
-    this.service.allCategories
-      .subscribe(
-        (allCategories: Category[]) => {
-          this._categories$.next(allCategories);
-          this.categoriesChange.emit(allCategories);
-        }
-      );
+    this.service.allCategories.subscribe((allCategories: Category[]) => {
+      this._categories$.next(allCategories);
+      this.categoriesChange.emit(allCategories);
+    });
   }
 
   addCategory() {
@@ -42,7 +37,7 @@ export class AdminCategoryComponent implements OnInit {
   }
 
   private initNewCategory() {
-    this.category = {id: 0, name: ""};
+    this.category = { id: 0, name: '' };
   }
 
   get categories(): Observable<Category[]> {
@@ -50,13 +45,12 @@ export class AdminCategoryComponent implements OnInit {
   }
 
   deleteCategory(id: number) {
-    this.service.deleteCategory(id).subscribe((result) => {
+    this.service.deleteCategory(id).subscribe(result => {
       let categories: Category[] = this._categories$.getValue();
-      let index = categories.findIndex((category) => category.id === id);
+      let index = categories.findIndex(category => category.id === id);
       categories.splice(index, 1);
       this._categories$.next(categories);
       this.categoriesChange.emit(categories);
     });
   }
-
 }

@@ -12,16 +12,14 @@ export class FormSearchComponent implements OnInit, OnDestroy {
   searchForm: FormGroup;
   subscriptions: Subscription[];
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.searchForm = this.formBuilder.group({
       search: ['']
     });
 
-    this.subscriptions = [
-      this.searchForm.controls.search.valueChanges.subscribe(value => this.formChange.emit(value))
-    ];
+    this.subscriptions = [this.searchForm.controls.search.valueChanges.subscribe(value => this.formChange.emit(value))];
   }
 
   ngOnDestroy() {

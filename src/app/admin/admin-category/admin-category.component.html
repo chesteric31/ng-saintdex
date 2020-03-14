@@ -3,13 +3,13 @@
   <li *ngFor="let category of categories | async">
     <div bp="grid">
       <div class="type" [ngClass]="category.name.toLowerCase()" bp="10@sm">
-        {{category.name}}
+        {{ category.name }}
       </div>
       <button (click)="deleteCategory(category.id)" class="btn--raised" bp="2@sm">delete</button>
     </div>
   </li>
 </ul>
 <div bp="grid">
-  <input bp="10@sm" type="text" [(ngModel)]="category.name" name="name">
+  <input bp="10@sm" type="text" [(ngModel)]="category.name" name="name" />
   <button (click)="addCategory()" class="btn--raised" bp="2@sm">add</button>
 </div>

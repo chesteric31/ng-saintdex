@@ -8,25 +8,11 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { FormSearchComponent } from './components/form-search/form-search.component';
 
-const components = [
-  HeaderComponent,
-  FooterComponent,
-  ModalComponent,
-  FormSearchComponent
-];
+const components = [HeaderComponent, FooterComponent, ModalComponent, FormSearchComponent];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    ReactiveFormsModule
-  ],
-  exports: [
-    ...components,
-    CommonModule,
-    RouterModule,
-    ReactiveFormsModule
-  ],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule],
+  exports: [...components, CommonModule, RouterModule, ReactiveFormsModule],
   declarations: [...components]
 })
-export class SharedModule { }
+export class SharedModule {}

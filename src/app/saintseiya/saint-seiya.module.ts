@@ -6,13 +6,7 @@ import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
-  imports: [
-    SharedModule,
-    SaintSeiyaRoutingModule
-  ],
-  declarations: [
-    ListComponent,
-    DetailComponent
-  ]
+  imports: [SharedModule, SaintSeiyaRoutingModule],
+  declarations: [ListComponent, DetailComponent]
 })
-export class SaintSeiyaModule { }
+export class SaintSeiyaModule {}

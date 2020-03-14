@@ -2,18 +2,27 @@
   <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
     <div bp="grid">
       <div bp="12" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-        <input type="text" placeholder="username"
-               name="username" [(ngModel)]="model.username"
-               #username="ngModel" required/>
+        <input
+          type="text"
+          placeholder="username"
+          name="username"
+          [(ngModel)]="model.username"
+          #username="ngModel"
+          required
+        />
         <div *ngIf="f.submitted && !username.valid">Username is required</div>
       </div>
       <div bp="12" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-        <input type="password" placeholder="password" autocomplete="password"
-               name="password" [(ngModel)]="model.password"
-               #password="ngModel" required>
-        <div *ngIf="f.submitted
-          && !password.valid">Password is required
-        </div>
+        <input
+          type="password"
+          placeholder="password"
+          autocomplete="password"
+          name="password"
+          [(ngModel)]="model.password"
+          #password="ngModel"
+          required
+        />
+        <div *ngIf="f.submitted && !password.valid">Password is required</div>
       </div>
       <div bp="12">
         <button type="submit" class="btn--raised">login</button>

@@ -5,7 +5,7 @@ function sleep() {
   browser.driver.sleep(1500); // sleep for demonstration reasons
 }
 
-describe('ng-saintseiyadex allArmors view', function () {
+describe('ng-saintseiyadex allArmors view', function() {
   let page: SaintSeiyaPage;
 
   beforeEach(() => {

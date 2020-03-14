@@ -15,7 +15,7 @@ $nike-size: 12rem;
 /* Credit to: https://codepen.io/boltaway/pen/BjyFb */
 .nike {
   $nike-half: $nike-size / -2;
-  background-image: url('assets/images/logo.png') ;
+  background-image: url('assets/images/logo.png');
   border-radius: 50%;
   height: $nike-size;
   left: 50%;
@@ -27,16 +27,28 @@ $nike-size: 12rem;
 }
 
 @-moz-keyframes spin {
-  from { -moz-transform: rotate(0deg); }
-  to { -moz-transform: rotate(360deg); }
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
 }
 @-webkit-keyframes spin {
-  from { -webkit-transform: rotate(0deg); }
-  to { -webkit-transform: rotate(360deg); }
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
 @keyframes spin {
-  from {transform:rotate(0deg);}
-  to {transform:rotate(360deg);}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .nike.spin {
@@ -45,15 +57,16 @@ $nike-size: 12rem;
 }
 
 .scrollbar-measure {
-	width: 100px;
-	height: 100px;
-	overflow: scroll;
-	position: absolute;
-	top: -9999px;
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+  position: absolute;
+  top: -9999px;
 }
 
 @media (max-width: 350px) {
-  [layout^="row"] > .col, [layout^="row"] > [layout^="col"] {
+  [layout^='row'] > .col,
+  [layout^='row'] > [layout^='col'] {
     padding: 0 4px 8px 4px;
   }
 }

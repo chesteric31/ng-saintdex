@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ViewportService {
-  constructor() { }
+  constructor() {}
 
   lockScroll() {
     // Temp until I can figure out the native renderer

@@ -1,7 +1,6 @@
-import {NgPage} from './app.po';
+import { NgPage } from './app.po';
 
-describe('ng-saintdex App', function () {
-
+describe('ng-saintdex App', function() {
   let page: NgPage;
 
   beforeEach(() => {

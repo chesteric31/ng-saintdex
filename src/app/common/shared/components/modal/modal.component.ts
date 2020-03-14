@@ -11,7 +11,7 @@ export enum MODAL_KEYS {
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss'],
+  styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit, OnDestroy {
   @Input() visible;
@@ -19,7 +19,7 @@ export class ModalComponent implements OnInit, OnDestroy {
   @Output() next = new EventEmitter<void>();
   @Output() previous = new EventEmitter<void>();
 
-  constructor(private viewportService: ViewportService) { }
+  constructor(private viewportService: ViewportService) {}
 
   ngOnInit() {
     this.viewportService.lockScroll();
