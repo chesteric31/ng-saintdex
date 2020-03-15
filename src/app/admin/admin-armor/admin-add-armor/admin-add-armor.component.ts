@@ -13,11 +13,12 @@ export class AdminAddArmorComponent implements OnInit {
   armor: Armor;
   allCategories: Observable<Category[]>;
 
-  constructor(private router: Router, private saintSeiyaDataService: SaintSeiyaDataService) {}
+  constructor(private router: Router,
+              private service: SaintSeiyaDataService) {}
 
   ngOnInit(): void {
     this.initNewArmor();
-    this.allCategories = this.saintSeiyaDataService.allCategories;
+    this.allCategories = this.service.allCategories;
   }
 
   private initNewArmor() {
@@ -25,8 +26,12 @@ export class AdminAddArmorComponent implements OnInit {
   }
 
   close() {
-    this.router.navigateByUrl('/admin');
+    this.router.navigate(['/admin']);
   }
 
-  addArmor() {}
+  addArmor() {
+    this.service.addArmor(this.armor).subscribe((newArmor: Armor) => {
+      this.close();
+    });
+  }
 }

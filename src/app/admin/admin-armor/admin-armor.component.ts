@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Armor } from '../../common/interfaces/saint-seiya';
 import { SaintSeiyaService } from '../../saintseiya/list/saint-seiya.service';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-armor',
@@ -10,11 +11,16 @@ import { SaintSeiyaService } from '../../saintseiya/list/saint-seiya.service';
 })
 export class AdminArmorComponent implements OnInit {
   private _armors$ = new BehaviorSubject<Armor[]>([]);
-  armor: Armor;
 
-  constructor(private service: SaintSeiyaService) {}
+  constructor(private service: SaintSeiyaService,
+              private router: Router) {}
 
   ngOnInit(): void {
+    this.router.events.subscribe(value => {
+      if (value instanceof NavigationEnd) {
+        this.loadInitialArmors();
+      }
+    });
     this.loadInitialArmors();
   }
 
