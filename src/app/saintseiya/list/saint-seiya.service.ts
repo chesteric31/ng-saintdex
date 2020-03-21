@@ -51,4 +51,8 @@ export class SaintSeiyaService {
   deleteArmor(id: number) {
     return this.service.deleteArmor(id);
   }
+
+  getCategory(id: number) {
+    return this.service.getCategory(id);
+  }
 }

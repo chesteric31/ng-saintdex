@@ -5,11 +5,14 @@
       <div class="type" [ngClass]="category.name.toLowerCase()" bp="10@sm">
         {{ category.name }}
       </div>
-      <button (click)="deleteCategory(category.id)" class="btn--raised" bp="2@sm">delete</button>
+      <button (click)="editCategory(category.id)" class="btn--raised" bp="1@sm">edit</button>
+      <button (click)="deleteCategory(category.id)" class="btn--raised" bp="1@sm">delete</button>
     </div>
   </li>
 </ul>
+-->{{other.name}}
 <div bp="grid">
-  <input bp="10@sm" type="text" [(ngModel)]="category.name" name="name" />
+  <input bp="10@sm" type="text" [ngModel]="currentCategory.name" (ngModelChange)="changeCategory($event)" name="name">
   <button (click)="addCategory()" class="btn--raised" bp="2@sm">add</button>
 </div>
+{{currentCategory.id}}

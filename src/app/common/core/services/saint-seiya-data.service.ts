@@ -33,8 +33,7 @@ export class SaintSeiyaDataService {
       Authorization: 'Bearer ' + sessionStorage.getItem('token')
     });
 
-    let options = { headers: headers };
-    return options;
+    return { headers: headers };
   }
 
   addArmor(armor: Armor) {
@@ -46,5 +45,10 @@ export class SaintSeiyaDataService {
   deleteArmor(id: number) {
     let options = this.buildOptions();
     return this.http.delete<Armor>(environment.apiUrl + 'v2/armors/' + id, options);
+  }
+
+  getCategory(id: number) {
+    let options = this.buildOptions();
+    return this.http.get<Category>(environment.apiUrl + 'v2/categories/' + id, options);
   }
 }
