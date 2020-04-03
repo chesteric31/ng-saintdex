@@ -8,18 +8,23 @@ import { AdminCategoryComponent } from './admin-category/admin-category.componen
 import { AdminArmorComponent } from './admin-armor/admin-armor.component';
 import { SharedModule } from '../common/shared/shared.module';
 import { AdminAddArmorComponent } from './admin-armor/admin-add-armor/admin-add-armor.component';
+import { AdminEditArmorComponent } from './admin-armor/admin-edit-armor/admin-edit-armor.component';
 
 const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
-    children: [{ path: 'armor-add', component: AdminAddArmorComponent }]
+    children: [
+      { path: 'armor-add', component: AdminAddArmorComponent },
+      { path: 'armor-edit/:id', component: AdminEditArmorComponent }
+    ]
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes), CommonModule, FormsModule, SharedModule],
-  declarations: [AdminComponent, AdminCategoryComponent, AdminArmorComponent, AdminAddArmorComponent],
+  declarations: [AdminComponent, AdminCategoryComponent, AdminArmorComponent, AdminAddArmorComponent, AdminEditArmorComponent],
   providers: [SaintSeiyaService]
 })
-export class AdminModule {}
+export class AdminModule {
+}

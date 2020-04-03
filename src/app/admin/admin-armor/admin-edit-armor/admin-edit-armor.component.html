@@ -1,0 +1,23 @@
+<app-modal visible="true" (visibleChange)="close()">
+  <div>
+    <h1>{{armor.name}}</h1>
+    <div class="type" [ngClass]="armor.category.name.toLowerCase()">
+      {{ armor.category.name }}
+    </div>
+    <h2>Versions</h2>
+    <ul *ngFor="let version of armor.versions">
+      <li>
+        <input type="text" [(ngModel)]="version.name">
+        <input type="file" [(ngModel)]="version.image">
+        <ul *ngFor="let attack of version.attacks">
+          <li>
+            <input type="text" [(ngModel)]="attack.name">
+          </li>
+        </ul>
+        <button class="btn--raised">add new attack</button>
+      </li>
+    </ul>
+    <button class="btn--raised">add new version</button>
+    <button (click)="editArmor()" class="btn--raised" bp="2">save</button>
+  </div>
+</app-modal>

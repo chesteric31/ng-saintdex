@@ -3,7 +3,8 @@
   <li *ngFor="let armor of armors | async">
     <div bp="grid">
       <div bp="10@sm" class="type" [ngClass]="armor.category.name.toLowerCase()">{{ armor.name }}</div>
-      <button (click)="deleteArmor(armor.id)" class="btn--raised" bp="2@sm">delete</button>
+      <a [routerLink]="['./', 'armor-edit', armor.id]" class="btn--raised" bp="1@sm">edit</a>
+      <button (click)="deleteArmor(armor.id)" class="btn--raised" bp="1@sm">delete</button>
     </div>
   </li>
 </ul>
@@ -11,11 +12,4 @@
   <a [routerLink]="['./', 'armor-add']" class="btn--raised" bp="2@sm offset-11@sm">add</a>
 </div>
 
-<!--<div bp="grid">
-  <input bp="8" type="text" [(ngModel)]="armor.name" name="name">
-  <select bp="2" [(ngModel)]="armor.category">
-    <option *ngFor="let category of categories" [ngValue]="category">{{category.name}}</option>
-  </select>
-  <button (click)="addArmor()" class="btn--raised" bp="2">add</button>
-</div>-->
 <router-outlet></router-outlet>

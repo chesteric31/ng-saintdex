@@ -51,4 +51,9 @@ export class SaintSeiyaDataService {
     let options = this.buildOptions();
     return this.http.get<Category>(environment.apiUrl + 'v2/categories/' + id, options);
   }
+
+  getArmor(id: number) {
+    let options = this.buildOptions();
+    return this.http.get<Category>(environment.apiUrl + 'v2/armors/' + id, options);
+  }
 }
