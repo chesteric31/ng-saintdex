@@ -11,11 +11,9 @@ import { SaintSeiyaService } from '../../saintseiya/list/saint-seiya.service';
 export class AdminCategoryComponent implements OnInit {
   private _categories$ = new BehaviorSubject<Category[]>([]);
   @Output() categoriesChange = new EventEmitter();
-  currentCategory: Category;
-  other = {id: 0, name: ''};
+  category: Category;
 
-  constructor(private service: SaintSeiyaService) {
-  }
+  constructor(private service: SaintSeiyaService) {}
 
   ngOnInit() {
     this.loadInitialCategories();
@@ -30,7 +28,7 @@ export class AdminCategoryComponent implements OnInit {
   }
 
   addCategory() {
-    this.service.addCategory(this.currentCategory).subscribe((newCategory: Category) => {
+    this.service.addCategory(this.category).subscribe((newCategory: Category) => {
       this._categories$.value.push(newCategory);
       this._categories$.next(this._categories$.value);
       this.categoriesChange.emit(this._categories$.value);
@@ -39,7 +37,7 @@ export class AdminCategoryComponent implements OnInit {
   }
 
   private initNewCategory() {
-    this.currentCategory = { id: 0, name: '' };
+    this.category = { id: 0, name: '' };
   }
 
   get categories(): Observable<Category[]> {
@@ -55,14 +53,4 @@ export class AdminCategoryComponent implements OnInit {
       this.categoriesChange.emit(categories);
     });
   }
-
-  async editCategory(id: number) {
-    const x = await this.service.getCategory(id).toPromise();
-    this.other = {id: x.id, name: x.name};
-  }
-
-  changeCategory($event: any) {
-    console.log('b', $event)
-  }
-
 }
