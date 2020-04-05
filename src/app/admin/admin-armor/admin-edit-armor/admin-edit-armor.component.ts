@@ -11,7 +11,7 @@ import { SaintSeiyaDataService } from '../../../common/core/services/saint-seiya
 })
 export class AdminEditArmorComponent implements OnInit {
 
-  armor: Armor;
+  armor$: Observable<Armor>;
   allCategories: Observable<Category[]>;
 
   constructor(private router: Router,
@@ -26,21 +26,13 @@ export class AdminEditArmorComponent implements OnInit {
   private initArmor() {
     this.route.params.subscribe((params: Params) => {
       if (params.id) {
-        this.service.getArmor(+params.id).subscribe((armor: Armor) => {
-          this.armor = armor;
-        });
+        this.armor$ = this.service.getArmor(+params.id);
       }
     })
   }
 
-  close() {
-    this.router.navigate(['/admin']);
-  }
-
-  editArmor() {
-    this.service.addArmor(this.armor).subscribe((newArmor: Armor) => {
-      this.close();
-    });
+  goBack() {
+    return this.router.navigate(['/admin']);
   }
 
 }

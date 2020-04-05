@@ -1,23 +1,23 @@
-<app-modal visible="true" (visibleChange)="close()">
-  <div>
-    <h1>{{armor.name}}</h1>
-    <div class="type" [ngClass]="armor.category.name.toLowerCase()">
-      {{ armor.category.name }}
-    </div>
-    <h2>Versions</h2>
-    <ul *ngFor="let version of armor.versions">
-      <li>
-        <input type="text" [(ngModel)]="version.name">
-        <input type="file" [(ngModel)]="version.image">
-        <ul *ngFor="let attack of version.attacks">
-          <li>
-            <input type="text" [(ngModel)]="attack.name">
-          </li>
-        </ul>
-        <button class="btn--raised">add new attack</button>
-      </li>
-    </ul>
-    <button class="btn--raised">add new version</button>
-    <button (click)="editArmor()" class="btn--raised" bp="2">save</button>
+<div bp="grid">
+  <h1 bp="10@sm">{{(armor$ | async)?.name}}</h1>
+  <button (click)="goBack()" class="btn--raised" bp="2@sm offset-11@sm">back</button>
+  <div bp="1@sm" class="type" [ngClass]="(armor$ | async)?.category.name.toLowerCase()">
+    {{ (armor$ | async)?.category?.name }}
   </div>
-</app-modal>
+  <h2 bp="12@sm">Versions</h2>
+  <ul *ngFor="let version of (armor$ | async)?.versions" bp="grid 12@sm">
+    <li>
+      <input type="text" [(ngModel)]="version.name">
+      <!--<input type="file" [(ngModel)]="version.image">-->
+      <ul *ngFor="let attack of version.attacks">
+        <li>
+          <input type="text" [(ngModel)]="attack.name">
+        </li>
+      </ul>
+      <button class="btn--raised">add new attack</button>
+    </li>
+  </ul>
+  <hr bp="12@sm"/>
+  <button class="btn--raised" bp="6@sm">add new version</button>
+  <button class="btn--raised" bp="6@sm">save</button>
+</div>

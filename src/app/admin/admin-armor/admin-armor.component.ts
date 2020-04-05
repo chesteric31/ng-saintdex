@@ -42,4 +42,8 @@ export class AdminArmorComponent implements OnInit {
       this._armors$.next(armors);
     });
   }
+
+  goToEditArmor(id: number) {
+    return this.router.navigate(['admin', 'armor-edit', id]);
+  }
 }

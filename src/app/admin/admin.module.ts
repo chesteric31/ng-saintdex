@@ -11,15 +11,16 @@ import { AdminAddArmorComponent } from './admin-armor/admin-add-armor/admin-add-
 import { AdminEditArmorComponent } from './admin-armor/admin-edit-armor/admin-edit-armor.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: AdminComponent,
-    children: [
-      { path: 'armor-add', component: AdminAddArmorComponent },
-      { path: 'armor-edit/:id', component: AdminEditArmorComponent }
-    ]
-  }
-];
+    {
+      path: '',
+      component: AdminComponent,
+      children: [
+        { path: 'armor-add', component: AdminAddArmorComponent }
+      ]
+    },
+    { path: 'armor-edit/:id', component: AdminEditArmorComponent }
+  ]
+;
 
 @NgModule({
   imports: [RouterModule.forChild(routes), CommonModule, FormsModule, SharedModule],
